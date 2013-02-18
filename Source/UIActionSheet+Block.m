@@ -21,9 +21,10 @@ static UIView *_inView;
 @implementation UIActionSheet (Block)
 
 + (UIActionSheet *)actionSheetWithTitle:(NSString *)title
-                                message:(NSString *)message
+                                  style:(UIActionSheetStyle)sheetStyle
                       cancelButtonTitle:(NSString *)cancelButtonTitle
                            buttonTitles:(NSArray *)buttonTitles
+                         disabledTitles:(NSArray *)disabledTitles
                              showInView:(UIView *)view
                               onDismiss:(DismissBlock)dismissed
                                onCancel:(CancelBlock)cancelled
@@ -38,16 +39,26 @@ static UIView *_inView;
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:nil];
     
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    actionSheet.actionSheetStyle = sheetStyle;
     
-    for (int i = 0; i < buttonTitles.count; i++)
-    {
+    for (int i = 0; i < buttonTitles.count; i++) {
         NSString *title = [buttonTitles objectAtIndex:i];
         [actionSheet addButtonWithTitle:title];
     }
     
+    for (UIButton *button in actionSheet.subviews) {
+        if ([button isKindOfClass:[UIButton class]]) {
+            for (NSString *disableTitle in disabledTitles) {
+                if ([disableTitle isEqualToString:button.titleLabel.text]) {
+                    [button setEnabled:NO];
+                }
+            }
+        }
+    }
+    
     [actionSheet addButtonWithTitle:cancelButtonTitle];
     actionSheet.cancelButtonIndex = buttonTitles.count-1;
+    
     
     if (cancelButtonTitle) {
         actionSheet.cancelButtonIndex ++;

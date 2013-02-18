@@ -61,9 +61,10 @@
     UIButton *button = (UIButton *)sender;
     
     [UIActionSheet actionSheetWithTitle:@"ActionSheet"
-                                message:nil
+                                  style:UIActionSheetStyleAutomatic
                       cancelButtonTitle:@"Cancel"
-                           buttonTitles:[NSArray arrayWithObjects:@"Button 1",@"Button 2", nil]
+                           buttonTitles:[NSArray arrayWithObjects:@"Button 1",@"Button 2",@"Button 3",@"Button 4", nil]
+                         disabledTitles:[NSArray arrayWithObjects:@"Button 2", nil]
                              showInView:button
                               onDismiss:^(int buttonIndex, NSString *buttonTitle){
                                   NSLog(@"Pressed button : %@",buttonTitle);

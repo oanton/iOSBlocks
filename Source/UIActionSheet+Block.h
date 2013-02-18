@@ -12,9 +12,10 @@
 @interface UIActionSheet (Block) <UIActionSheetDelegate, UIImagePickerControllerDelegate, BlockProtocol>
 
 + (UIActionSheet *)actionSheetWithTitle:(NSString *)title
-                                message:(NSString *)message
+                                  style:(UIActionSheetStyle)sheetStyle
                       cancelButtonTitle:(NSString *)cancelButtonTitle
                            buttonTitles:(NSArray *)buttonTitles
+                         disabledTitles:(NSArray *)disabledTitles
                              showInView:(UIView *)view
                               onDismiss:(DismissBlock)dismissed
                                onCancel:(CancelBlock)cancelled;
