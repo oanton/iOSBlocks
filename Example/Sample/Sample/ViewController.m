@@ -24,15 +24,6 @@
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
         popoverButton.hidden = YES;
     }
-
-    [CLLocationManager updateLocationWithDistanceFilter:1.0
-                                     andDesiredAccuracy:kCLLocationAccuracyBest
-                                     didUpdateLocations:^(NSArray *locations){
-                                         NSLog(@"locations : %@",locations);
-                                     }
-                                       didFailWithError:^(NSError *error){
-                                           NSLog(@"error : %@",error.localizedDescription);
-                                       }];
 }
 
 - (IBAction)triggerNewEmail:(id)sender {
