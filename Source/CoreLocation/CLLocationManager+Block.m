@@ -1,8 +1,8 @@
 //
 //  CLLocationManager+Block.m
-//  Sample
+//  iOS Blocks
 //
-//  Created by Ignacio on 3/8/13.
+//  Created by Ignacio Romero Zurbuchen on 3/8/13.
 //  Copyright (c) 2013 DZEN. All rights reserved.
 //
 

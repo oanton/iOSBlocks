@@ -1,15 +1,15 @@
 //
 //  CLLocationManager+Block.h
-//  Sample
+//  iOS Blocks
 //
-//  Created by Ignacio on 3/8/13.
+//  Created by Ignacio Romero Zurbuchen on 3/8/13.
 //  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
 #import <CoreLocation/CoreLocation.h>
-#import "BlockProtocol.h"
+#import "iOSBlocksProtocol.h"
 
-@interface CLLocationManager (Block) <BlockProtocol, CLLocationManagerDelegate>
+@interface CLLocationManager (Block) <CLLocationManagerDelegate, iOSBlocksProtocol>
 
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy

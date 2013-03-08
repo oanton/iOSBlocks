@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  Sample
+//  iOS Blocks
 //
-//  Created by Ignacio on 2/11/13.
+//  Created by Ignacio Romero Zurbuchen on 2/12/13.
 //  Copyright (c) 2013 DZEN. All rights reserved.
 //
 

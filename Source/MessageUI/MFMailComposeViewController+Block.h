@@ -1,19 +1,19 @@
 //
 //  MFMailComposeViewController+Block.h
-//  BetaStore
+//  iOS Blocks
 //
-//  Created by Ignacio on 12/11/12.
-//  Copyright (c) 2012 BetaStore. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 12/11/12.
+//  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
 #import <MessageUI/MessageUI.h>
-#import "BlockProtocol.h"
+#import "iOSBlocksProtocol.h"
 
 __unused static NSString *kMFAttachmentData = @"AttachmentData";
 __unused static NSString *kMFAttachmentMimeType = @"AttachmentMimeType";
 __unused static NSString *kMFAttachmentFileName = @"AttachmentFileName";
 
-@interface MFMailComposeViewController (Block) <MFMailComposeViewControllerDelegate, BlockProtocol>
+@interface MFMailComposeViewController (Block) <MFMailComposeViewControllerDelegate, iOSBlocksProtocol>
 
 + (void)mailWithSubject:(NSString *)subject
                 message:(NSString *)message

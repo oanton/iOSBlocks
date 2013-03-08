@@ -1,15 +1,15 @@
 //
 //  UIActionSheet+Block.h
-//  BetaStore
+//  iOS Blocks
 //
-//  Created by Ignacio on 12/12/12.
-//  Copyright (c) 2012 BetaStore. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 12/11/12.
+//  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "BlockProtocol.h"
+#import "iOSBlocksProtocol.h"
 
-@interface UIActionSheet (Block) <UIActionSheetDelegate, UIImagePickerControllerDelegate, BlockProtocol>
+@interface UIActionSheet (Block) <UIActionSheetDelegate, UIImagePickerControllerDelegate, iOSBlocksProtocol>
 
 + (UIActionSheet *)actionSheetWithTitle:(NSString *)title
                                   style:(UIActionSheetStyle)sheetStyle

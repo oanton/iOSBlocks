@@ -1,9 +1,9 @@
 //
 //  UIPopoverController+Block.m
-//  BetaStore
+//  iOS Blocks
 //
-//  Created by Ignacio on 12/12/12.
-//  Copyright (c) 2012 BetaStore. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 12/11/12.
+//  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
 #import "UIPopoverController+Block.h"

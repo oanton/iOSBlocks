@@ -17,17 +17,17 @@
 		4F667BAC16C9D28E00FE8B8D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BAB16C9D28E00FE8B8D /* Default@2x.png */; };
 		4F667BAE16C9D28E00FE8B8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BAD16C9D28E00FE8B8D /* Default-568h@2x.png */; };
 		4F667BB116C9D28E00FE8B8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BB016C9D28E00FE8B8D /* ViewController.m */; };
-		4F667BC816C9D2A800FE8B8D /* MFMailComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BBD16C9D2A800FE8B8D /* MFMailComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F667BC916C9D2A800FE8B8D /* MFMessageComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BBF16C9D2A800FE8B8D /* MFMessageComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F667BCA16C9D2A800FE8B8D /* NSURLConnection+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BC116C9D2A800FE8B8D /* NSURLConnection+Blocks.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F667BCB16C9D2A800FE8B8D /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BC316C9D2A800FE8B8D /* UIActionSheet+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F667BCC16C9D2A800FE8B8D /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BC516C9D2A800FE8B8D /* UIAlertView+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F667BCD16C9D2A800FE8B8D /* UIPopoverController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BC716C9D2A800FE8B8D /* UIPopoverController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4F667BD016C9E7EC00FE8B8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */; };
 		4F667BD316C9E82E00FE8B8D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BD116C9E82000FE8B8D /* MessageUI.framework */; };
 		4F667BD916CA09DF00FE8B8D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BD716CA09DE00FE8B8D /* ViewController.xib */; };
+		4F7AF87D16EAA195005C3769 /* MFMailComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87116EAA195005C3769 /* MFMailComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7AF87E16EAA195005C3769 /* MFMessageComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87316EAA195005C3769 /* MFMessageComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7AF87F16EAA195005C3769 /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87616EAA195005C3769 /* UIActionSheet+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7AF88016EAA195005C3769 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87816EAA195005C3769 /* UIAlertView+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7AF88116EAA195005C3769 /* UIPopoverController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7AF88416EAA286005C3769 /* NSURLConnection+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88316EAA286005C3769 /* NSURLConnection+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88616EAA2A9005C3769 /* CLLocationManager+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4FA5202E16EA79E400B65926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA5202C16EA79DC00B65926 /* CoreLocation.framework */; };
-		4FA5203116EA7A8200B65926 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5203016EA7A8100B65926 /* CLLocationManager+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,26 +46,26 @@
 		4F667BAD16C9D28E00FE8B8D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4F667BAF16C9D28E00FE8B8D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4F667BB016C9D28E00FE8B8D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4F667BBC16C9D2A800FE8B8D /* MFMailComposeViewController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MFMailComposeViewController+Block.h"; path = "../../../Source/MFMailComposeViewController+Block.h"; sourceTree = "<group>"; };
-		4F667BBD16C9D2A800FE8B8D /* MFMailComposeViewController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MFMailComposeViewController+Block.m"; path = "../../../Source/MFMailComposeViewController+Block.m"; sourceTree = "<group>"; };
-		4F667BBE16C9D2A800FE8B8D /* MFMessageComposeViewController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MFMessageComposeViewController+Block.h"; path = "../../../Source/MFMessageComposeViewController+Block.h"; sourceTree = "<group>"; };
-		4F667BBF16C9D2A800FE8B8D /* MFMessageComposeViewController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MFMessageComposeViewController+Block.m"; path = "../../../Source/MFMessageComposeViewController+Block.m"; sourceTree = "<group>"; };
-		4F667BC016C9D2A800FE8B8D /* NSURLConnection+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLConnection+Blocks.h"; path = "../../../Source/NSURLConnection+Blocks.h"; sourceTree = "<group>"; };
-		4F667BC116C9D2A800FE8B8D /* NSURLConnection+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLConnection+Blocks.m"; path = "../../../Source/NSURLConnection+Blocks.m"; sourceTree = "<group>"; };
-		4F667BC216C9D2A800FE8B8D /* UIActionSheet+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+Block.h"; path = "../../../Source/UIActionSheet+Block.h"; sourceTree = "<group>"; };
-		4F667BC316C9D2A800FE8B8D /* UIActionSheet+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+Block.m"; path = "../../../Source/UIActionSheet+Block.m"; sourceTree = "<group>"; };
-		4F667BC416C9D2A800FE8B8D /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+Block.h"; path = "../../../Source/UIAlertView+Block.h"; sourceTree = "<group>"; };
-		4F667BC516C9D2A800FE8B8D /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Block.m"; path = "../../../Source/UIAlertView+Block.m"; sourceTree = "<group>"; };
-		4F667BC616C9D2A800FE8B8D /* UIPopoverController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIPopoverController+Block.h"; path = "../../../Source/UIPopoverController+Block.h"; sourceTree = "<group>"; };
-		4F667BC716C9D2A800FE8B8D /* UIPopoverController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIPopoverController+Block.m"; path = "../../../Source/UIPopoverController+Block.m"; sourceTree = "<group>"; };
 		4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4F667BD116C9E82000FE8B8D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		4F667BD516C9ED9700FE8B8D /* BlockProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlockProtocol.h; path = ../../../Source/BlockProtocol.h; sourceTree = "<group>"; };
-		4F667BD616C9EF6300FE8B8D /* UIKitBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIKitBlocks.h; path = ../../../Source/UIKitBlocks.h; sourceTree = "<group>"; };
 		4F667BD816CA09DF00FE8B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		4F7AF86716EAA189005C3769 /* iOSBlocksProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSBlocksProtocol.h; path = ../../../Source/iOSBlocksProtocol.h; sourceTree = "<group>"; };
+		4F7AF86816EAA189005C3769 /* iOSBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSBlocks.h; path = ../../../Source/iOSBlocks.h; sourceTree = "<group>"; };
+		4F7AF87016EAA195005C3769 /* MFMailComposeViewController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMailComposeViewController+Block.h"; sourceTree = "<group>"; };
+		4F7AF87116EAA195005C3769 /* MFMailComposeViewController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MFMailComposeViewController+Block.m"; sourceTree = "<group>"; };
+		4F7AF87216EAA195005C3769 /* MFMessageComposeViewController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMessageComposeViewController+Block.h"; sourceTree = "<group>"; };
+		4F7AF87316EAA195005C3769 /* MFMessageComposeViewController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MFMessageComposeViewController+Block.m"; sourceTree = "<group>"; };
+		4F7AF87516EAA195005C3769 /* UIActionSheet+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Block.h"; sourceTree = "<group>"; };
+		4F7AF87616EAA195005C3769 /* UIActionSheet+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Block.m"; sourceTree = "<group>"; };
+		4F7AF87716EAA195005C3769 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		4F7AF87816EAA195005C3769 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		4F7AF87916EAA195005C3769 /* UIPopoverController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+Block.h"; sourceTree = "<group>"; };
+		4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+Block.m"; sourceTree = "<group>"; };
+		4F7AF88216EAA286005C3769 /* NSURLConnection+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+Block.h"; sourceTree = "<group>"; };
+		4F7AF88316EAA286005C3769 /* NSURLConnection+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+Block.m"; sourceTree = "<group>"; };
+		4F7AF88516EAA2A9005C3769 /* CLLocationManager+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+Block.h"; sourceTree = "<group>"; };
+		4F7AF88616EAA2A9005C3769 /* CLLocationManager+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+Block.m"; sourceTree = "<group>"; };
 		4FA5202C16EA79DC00B65926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		4FA5202F16EA7A8100B65926 /* CLLocationManager+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocationManager+Block.h"; path = "../../../Source/CLLocationManager+Block.h"; sourceTree = "<group>"; };
-		4FA5203016EA7A8100B65926 /* CLLocationManager+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocationManager+Block.m"; path = "../../../Source/CLLocationManager+Block.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				4F667BAF16C9D28E00FE8B8D /* ViewController.h */,
 				4F667BB016C9D28E00FE8B8D /* ViewController.m */,
 				4F667BD716CA09DE00FE8B8D /* ViewController.xib */,
-				4F667BBA16C9D29400FE8B8D /* UIKit-Blocks */,
+				4F667BBA16C9D29400FE8B8D /* Source */,
 				4F667B9E16C9D28E00FE8B8D /* Supporting Files */,
 			);
 			path = Sample;
@@ -143,27 +143,63 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4F667BBA16C9D29400FE8B8D /* UIKit-Blocks */ = {
+		4F667BBA16C9D29400FE8B8D /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				4F667BD616C9EF6300FE8B8D /* UIKitBlocks.h */,
-				4F667BD516C9ED9700FE8B8D /* BlockProtocol.h */,
-				4F667BBC16C9D2A800FE8B8D /* MFMailComposeViewController+Block.h */,
-				4F667BBD16C9D2A800FE8B8D /* MFMailComposeViewController+Block.m */,
-				4F667BBE16C9D2A800FE8B8D /* MFMessageComposeViewController+Block.h */,
-				4F667BBF16C9D2A800FE8B8D /* MFMessageComposeViewController+Block.m */,
-				4F667BC016C9D2A800FE8B8D /* NSURLConnection+Blocks.h */,
-				4F667BC116C9D2A800FE8B8D /* NSURLConnection+Blocks.m */,
-				4F667BC216C9D2A800FE8B8D /* UIActionSheet+Block.h */,
-				4F667BC316C9D2A800FE8B8D /* UIActionSheet+Block.m */,
-				4F667BC416C9D2A800FE8B8D /* UIAlertView+Block.h */,
-				4F667BC516C9D2A800FE8B8D /* UIAlertView+Block.m */,
-				4F667BC616C9D2A800FE8B8D /* UIPopoverController+Block.h */,
-				4F667BC716C9D2A800FE8B8D /* UIPopoverController+Block.m */,
-				4FA5202F16EA7A8100B65926 /* CLLocationManager+Block.h */,
-				4FA5203016EA7A8100B65926 /* CLLocationManager+Block.m */,
+				4F7AF86716EAA189005C3769 /* iOSBlocksProtocol.h */,
+				4F7AF86816EAA189005C3769 /* iOSBlocks.h */,
+				4F7AF86916EAA195005C3769 /* CoreLocation */,
+				4F7AF86A16EAA195005C3769 /* Foundation */,
+				4F7AF86F16EAA195005C3769 /* MessageUI */,
+				4F7AF87416EAA195005C3769 /* UIKit */,
 			);
-			name = "UIKit-Blocks";
+			name = Source;
+			sourceTree = "<group>";
+		};
+		4F7AF86916EAA195005C3769 /* CoreLocation */ = {
+			isa = PBXGroup;
+			children = (
+				4F7AF88516EAA2A9005C3769 /* CLLocationManager+Block.h */,
+				4F7AF88616EAA2A9005C3769 /* CLLocationManager+Block.m */,
+			);
+			name = CoreLocation;
+			path = ../../../Source/CoreLocation;
+			sourceTree = "<group>";
+		};
+		4F7AF86A16EAA195005C3769 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				4F7AF88216EAA286005C3769 /* NSURLConnection+Block.h */,
+				4F7AF88316EAA286005C3769 /* NSURLConnection+Block.m */,
+			);
+			name = Foundation;
+			path = ../../../Source/Foundation;
+			sourceTree = "<group>";
+		};
+		4F7AF86F16EAA195005C3769 /* MessageUI */ = {
+			isa = PBXGroup;
+			children = (
+				4F7AF87016EAA195005C3769 /* MFMailComposeViewController+Block.h */,
+				4F7AF87116EAA195005C3769 /* MFMailComposeViewController+Block.m */,
+				4F7AF87216EAA195005C3769 /* MFMessageComposeViewController+Block.h */,
+				4F7AF87316EAA195005C3769 /* MFMessageComposeViewController+Block.m */,
+			);
+			name = MessageUI;
+			path = ../../../Source/MessageUI;
+			sourceTree = "<group>";
+		};
+		4F7AF87416EAA195005C3769 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4F7AF87516EAA195005C3769 /* UIActionSheet+Block.h */,
+				4F7AF87616EAA195005C3769 /* UIActionSheet+Block.m */,
+				4F7AF87716EAA195005C3769 /* UIAlertView+Block.h */,
+				4F7AF87816EAA195005C3769 /* UIAlertView+Block.m */,
+				4F7AF87916EAA195005C3769 /* UIPopoverController+Block.h */,
+				4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */,
+			);
+			name = UIKit;
+			path = ../../../Source/UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,13 +271,13 @@
 				4F667BA416C9D28E00FE8B8D /* main.m in Sources */,
 				4F667BA816C9D28E00FE8B8D /* AppDelegate.m in Sources */,
 				4F667BB116C9D28E00FE8B8D /* ViewController.m in Sources */,
-				4F667BC816C9D2A800FE8B8D /* MFMailComposeViewController+Block.m in Sources */,
-				4F667BC916C9D2A800FE8B8D /* MFMessageComposeViewController+Block.m in Sources */,
-				4F667BCA16C9D2A800FE8B8D /* NSURLConnection+Blocks.m in Sources */,
-				4F667BCB16C9D2A800FE8B8D /* UIActionSheet+Block.m in Sources */,
-				4F667BCC16C9D2A800FE8B8D /* UIAlertView+Block.m in Sources */,
-				4F667BCD16C9D2A800FE8B8D /* UIPopoverController+Block.m in Sources */,
-				4FA5203116EA7A8200B65926 /* CLLocationManager+Block.m in Sources */,
+				4F7AF87D16EAA195005C3769 /* MFMailComposeViewController+Block.m in Sources */,
+				4F7AF87E16EAA195005C3769 /* MFMessageComposeViewController+Block.m in Sources */,
+				4F7AF87F16EAA195005C3769 /* UIActionSheet+Block.m in Sources */,
+				4F7AF88016EAA195005C3769 /* UIAlertView+Block.m in Sources */,
+				4F7AF88116EAA195005C3769 /* UIPopoverController+Block.m in Sources */,
+				4F7AF88416EAA286005C3769 /* NSURLConnection+Block.m in Sources */,
+				4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

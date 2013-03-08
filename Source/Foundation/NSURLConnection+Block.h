@@ -1,15 +1,15 @@
 //
-//  NSURLConnection+Blocks.h
-//  BetaStore
+//  NSURLConnection+Block.h
+//  iOS Blocks
 //
-//  Created by Ignacio on 1/11/13.
-//  Copyright (c) 2013 BetaStore. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 1/11/13.
+//  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "BlockProtocol.h"
+#import "iOSBlocksProtocol.h"
 
-@interface NSURLConnection (Blocks) <NSURLConnectionDelegate, BlockProtocol>
+@interface NSURLConnection (Block) <NSURLConnectionDelegate, iOSBlocksProtocol>
 
 + (NSURLConnection *)sendAsynchronousRequest:(NSURLRequest *)request
                            didUpdateProgress:(ProgressBlock)progress

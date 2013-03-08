@@ -1,15 +1,15 @@
 //
 //  UIPopoverController+Block.h
-//  BetaStore
+//  iOS Blocks
 //
-//  Created by Ignacio on 12/12/12.
-//  Copyright (c) 2012 BetaStore. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 12/11/12.
+//  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "BlockProtocol.h"
+#import "iOSBlocksProtocol.h"
 
-@interface UIPopoverController (Block) <UIPopoverControllerDelegate, BlockProtocol>
+@interface UIPopoverController (Block) <UIPopoverControllerDelegate, iOSBlocksProtocol>
 
 + (UIPopoverController *)popOverWithContentViewController:(UIViewController *)controller
                                                showInView:(UIView *)view

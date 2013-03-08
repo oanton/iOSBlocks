@@ -1,15 +1,15 @@
 //
-//  BlockProtocol.h
-//  Sample
+//  iOSBlocksProtocol.h
+//  iOS Blocks
 //
-//  Created by Ignacio on 2/12/13.
+//  Created by Ignacio Romero Zurbuchen on 2/12/13.
 //  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@protocol BlockProtocol <NSObject>
+@protocol iOSBlocksProtocol <NSObject>
 
 typedef void (^VoidBlock)();
 

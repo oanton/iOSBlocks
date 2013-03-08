@@ -1,12 +1,12 @@
 //
-//  NSURLConnection+Blocks.m
-//  BetaStore
+//  NSURLConnection+Block.m
+//  iOS Blocks
 //
-//  Created by Ignacio on 1/11/13.
-//  Copyright (c) 2013 BetaStore. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 1/11/13.
+//  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
-#import "NSURLConnection+Blocks.h"
+#import "NSURLConnection+Block.h"
 
 static ProgressBlock _progressBlock;
 static DataBlock _dataBlock;
