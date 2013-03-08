@@ -146,8 +146,8 @@
 		4F667BBA16C9D29400FE8B8D /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				4F7AF86716EAA189005C3769 /* iOSBlocksProtocol.h */,
 				4F7AF86816EAA189005C3769 /* iOSBlocks.h */,
+				4F7AF86716EAA189005C3769 /* iOSBlocksProtocol.h */,
 				4F7AF86916EAA195005C3769 /* CoreLocation */,
 				4F7AF86A16EAA195005C3769 /* Foundation */,
 				4F7AF86F16EAA195005C3769 /* MessageUI */,
