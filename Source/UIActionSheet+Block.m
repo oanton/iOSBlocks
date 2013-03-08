@@ -181,6 +181,7 @@ static UIView *_inView;
                 [_presentVC presentViewController:pickerController animated:YES completion:NULL];
             }
             else {
+#ifdef UNIVERSAL
                 appDelegate.popover = [UIPopoverController popOverWithContentViewController:pickerController
                                                                                  showInView:_inView
                                                                             onShouldDismiss:^(void){
@@ -190,6 +191,8 @@ static UIView *_inView;
                                                                                        NSLog(@"Cancelled");
                                                                                    }
                                        ];
+#endif
+                
             }
         }
         else

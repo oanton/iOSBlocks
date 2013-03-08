@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @protocol BlockProtocol <NSObject>
 
@@ -23,5 +24,7 @@ typedef void (^ProgressBlock)(NSInteger connectionProgress);
 typedef void (^DataBlock)(NSData *data);
 typedef void (^SuccessBlock)(NSHTTPURLResponse *HTTPResponse);
 typedef void (^FailureBlock)(NSError *error);
+
+typedef void (^LocationBlock)(NSArray *locations);
 
 @end

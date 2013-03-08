@@ -9,9 +9,9 @@
 #import <MessageUI/MessageUI.h>
 #import "BlockProtocol.h"
 
-static NSString *kMFAttachmentData = @"AttachmentData";
-static NSString *kMFAttachmentMimeType = @"AttachmentMimeType";
-static NSString *kMFAttachmentFileName = @"AttachmentFileName";
+__unused static NSString *kMFAttachmentData = @"AttachmentData";
+__unused static NSString *kMFAttachmentMimeType = @"AttachmentMimeType";
+__unused static NSString *kMFAttachmentFileName = @"AttachmentFileName";
 
 @interface MFMailComposeViewController (Block) <MFMailComposeViewControllerDelegate, BlockProtocol>
 

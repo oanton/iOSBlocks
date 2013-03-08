@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 BetaStore. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "BlockProtocol.h"
 
 @interface UIAlertView (Block) <UIAlertViewDelegate, BlockProtocol>

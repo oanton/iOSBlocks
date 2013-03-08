@@ -14,3 +14,5 @@
 #import "MFMessageComposeViewController+Block.h"
 
 #import "NSURLConnection+Blocks.h"
+
+#import "CLLocationManager+Block.h"

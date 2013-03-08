@@ -26,6 +26,8 @@
 		4F667BD016C9E7EC00FE8B8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */; };
 		4F667BD316C9E82E00FE8B8D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BD116C9E82000FE8B8D /* MessageUI.framework */; };
 		4F667BD916CA09DF00FE8B8D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BD716CA09DE00FE8B8D /* ViewController.xib */; };
+		4FA5202E16EA79E400B65926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA5202C16EA79DC00B65926 /* CoreLocation.framework */; };
+		4FA5203116EA7A8200B65926 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5203016EA7A8100B65926 /* CLLocationManager+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,9 @@
 		4F667BD516C9ED9700FE8B8D /* BlockProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlockProtocol.h; path = ../../../Source/BlockProtocol.h; sourceTree = "<group>"; };
 		4F667BD616C9EF6300FE8B8D /* UIKitBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIKitBlocks.h; path = ../../../Source/UIKitBlocks.h; sourceTree = "<group>"; };
 		4F667BD816CA09DF00FE8B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		4FA5202C16EA79DC00B65926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4FA5202F16EA7A8100B65926 /* CLLocationManager+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CLLocationManager+Block.h"; path = "../../../Source/CLLocationManager+Block.h"; sourceTree = "<group>"; };
+		4FA5203016EA7A8100B65926 /* CLLocationManager+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocationManager+Block.m"; path = "../../../Source/CLLocationManager+Block.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA5202E16EA79E400B65926 /* CoreLocation.framework in Frameworks */,
 				4F667BD316C9E82E00FE8B8D /* MessageUI.framework in Frameworks */,
 				4F667BD016C9E7EC00FE8B8D /* MobileCoreServices.framework in Frameworks */,
 				4F667B9816C9D28E00FE8B8D /* UIKit.framework in Frameworks */,
@@ -99,6 +105,7 @@
 		4F667B9616C9D28E00FE8B8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FA5202C16EA79DC00B65926 /* CoreLocation.framework */,
 				4F667BD116C9E82000FE8B8D /* MessageUI.framework */,
 				4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */,
 				4F667B9716C9D28E00FE8B8D /* UIKit.framework */,
@@ -153,6 +160,8 @@
 				4F667BC516C9D2A800FE8B8D /* UIAlertView+Block.m */,
 				4F667BC616C9D2A800FE8B8D /* UIPopoverController+Block.h */,
 				4F667BC716C9D2A800FE8B8D /* UIPopoverController+Block.m */,
+				4FA5202F16EA7A8100B65926 /* CLLocationManager+Block.h */,
+				4FA5203016EA7A8100B65926 /* CLLocationManager+Block.m */,
 			);
 			name = "UIKit-Blocks";
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 				4F667BCB16C9D2A800FE8B8D /* UIActionSheet+Block.m in Sources */,
 				4F667BCC16C9D2A800FE8B8D /* UIAlertView+Block.m in Sources */,
 				4F667BCD16C9D2A800FE8B8D /* UIPopoverController+Block.m in Sources */,
+				4FA5203116EA7A8200B65926 /* CLLocationManager+Block.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
