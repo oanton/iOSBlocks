@@ -1,7 +1,8 @@
-UIKit-Blocks
+iOS Blocks
 ============
 
 Delegates are a real pain in the ars. Objective-C Blocks rule.
+This are some category classes to allow easy implementation of the basic iOS frameworks without the need of using delegate protocols but code blocks instead.
 
 
 ## License
