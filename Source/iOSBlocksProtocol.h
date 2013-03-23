@@ -12,6 +12,7 @@
 @protocol iOSBlocksProtocol <NSObject>
 
 typedef void (^VoidBlock)();
+typedef void (^CompletionBlock)(BOOL completed);
 
 typedef void (^DismissBlock)(int buttonIndex, NSString *buttonTitle);
 typedef void (^CancelBlock)();

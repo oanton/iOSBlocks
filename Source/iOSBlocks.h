@@ -16,3 +16,5 @@
 #import "NSURLConnection+Block.h"
 
 #import "CLLocationManager+Block.h"
+
+#import "UINavigationController+Block.h"
