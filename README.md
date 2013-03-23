@@ -2,7 +2,88 @@ iOS Blocks
 ============
 
 Delegates are a real pain in the ars. Objective-C Blocks rule.
-This are some category classes to allow easy implementation of the basic iOS frameworks without the need of using delegate protocols but code blocks instead.
+This are some category classes to allow easy implementation of the basic iOS frameworks & APIs without the need of using delegate protocols but code blocks instead.
+
+## UINavigationController
+```
+- (void)popViewControllerAnimated:(BOOL)animated
+                     onCompletion:(VoidBlock)completion;
+```
+
+&
+
+```
+- (void)pushViewController:(UIViewController *)viewController
+                  animated:(BOOL)animated
+              onCompletion:(VoidBlock)completion;
+```
+
+## UIPopoverController
+```
++ (UIPopoverController *)popOverWithContentViewController:(UIViewController *)controller
+                                               showInView:(UIView *)view
+                                          onShouldDismiss:(VoidBlock)shouldDismiss
+                                                 onCancel:(CancelBlock)cancelled;
+```
+
+## UIAlertView
+```
++ (UIAlertView *)alertViewWithTitle:(NSString *)title
+                            message:(NSString *)message
+                  cancelButtonTitle:(NSString *)cancelButtonTitle
+                  otherButtonTitles:(NSArray *)otherButtons
+                          onDismiss:(DismissBlock)dismissed
+                           onCancel:(CancelBlock)cancelled;
+```
+
+## UIActionSheet
+```
++ (UIActionSheet *)actionSheetWithTitle:(NSString *)title
+                                  style:(UIActionSheetStyle)sheetStyle
+                      cancelButtonTitle:(NSString *)cancelButtonTitle
+                           buttonTitles:(NSArray *)buttonTitles
+                         disabledTitles:(NSArray *)disabledTitles
+                             showInView:(UIView *)view
+                              onDismiss:(DismissBlock)dismissed
+                               onCancel:(CancelBlock)cancelled;
+```
+
+## MFMailComposeViewController
+```
++ (void)mailWithSubject:(NSString *)subject
+                message:(NSString *)message
+             recipients:(NSArray *)recipients
+         andAttachments:(NSArray *)attachments
+             onCreation:(ComposeCreatedBlock)creation
+               onFinish:(ComposeFinishedBlock)finished;
+```
+
+## MFMessageComposeViewController
+```
++ (void)messageWithBody:(NSString *)body
+             recipients:(NSArray *)recipients
+             onCreation:(ComposeCreatedBlock)creation
+               onFinish:(ComposeFinishedBlock)finished;
+```
+
+## NSURLConnection
+```
++ (NSURLConnection *)sendAsynchronousRequest:(NSURLRequest *)request
+                           didUpdateProgress:(ProgressBlock)progress
+                              didReceiveData:(DataBlock)data
+                          didReceiveResponse:(SuccessBlock)success
+                            didFailWithError:(FailureBlock)fail;
+```
+
+## CoreLocation
+```
++ (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
+                      andDesiredAccuracy:(CLLocationAccuracy)accuracy
+                      didUpdateLocations:(LocationBlock)located
+                        didFailWithError:(FailureBlock)fail;
+```
+
+And more to come. Enjoy!
 
 
 ## License
