@@ -1,26 +1,42 @@
 //
-//  ViewController.m
+//  ViewsSampleViewController.m
 //  iOS Blocks
 //
 //  Created by Ignacio Romero Zurbuchen on 2/12/13.
 //  Copyright (c) 2013 DZEN. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ViewsSampleViewController.h"
 
-#import "iOSBlocks.h"
+#import "UIActionSheet+Block.h"
+#import "UIAlertView+Block.h"
+#import "UIPopoverController+Block.h"
 
-@interface ViewController ()
+#import "MFMailComposeViewController+Block.h"
+#import "MFMessageComposeViewController+Block.h"
+
+@interface ViewsSampleViewController ()
 @end
 
-@implementation ViewController
+@implementation ViewsSampleViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        self.title = @"Views";
+        self.tabBarItem.image = [UIImage imageNamed:@"item"];
+    }
+    return self;
+}
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
         popoverButton.hidden = YES;
     }

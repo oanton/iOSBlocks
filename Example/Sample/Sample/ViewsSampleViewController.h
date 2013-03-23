@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ViewsSampleViewController.h
 //  iOS Blocks
 //
 //  Created by Ignacio Romero Zurbuchen on 2/12/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
+@interface ViewsSampleViewController : UIViewController {
     
     IBOutlet UIButton *popoverButton;
 }

@@ -8,18 +8,40 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "ViewsSampleViewController.h"
+#import "NavigationSampleViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (UITabBarController *)tabBarController
+{
+    if (!_tabBarController)
+    {
+        _tabBarController = [[UITabBarController alloc] init];
+        
+        ViewsSampleViewController *viewsSampleVC = [[ViewsSampleViewController alloc] initWithNibName:@"ViewsSampleViewController" bundle:nil];
+        NavigationSampleViewController *navigationSampleVC = [[NavigationSampleViewController alloc] init];
+        
+        NSArray *viewControllers = [NSArray arrayWithObjects:viewsSampleVC, navigationSampleVC, nil];
+        
+        NSMutableArray *navigationControllers = [NSMutableArray new];
+        for (UIViewController *viewController in viewControllers) {
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+            [navigationControllers addObject:navigationController];
+        }
+        
+        [_tabBarController setViewControllers:navigationControllers];
+    }
+    return _tabBarController;
 }
 
 @end

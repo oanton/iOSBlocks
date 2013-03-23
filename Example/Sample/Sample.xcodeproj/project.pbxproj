@@ -16,10 +16,10 @@
 		4F667BAA16C9D28E00FE8B8D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BA916C9D28E00FE8B8D /* Default.png */; };
 		4F667BAC16C9D28E00FE8B8D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BAB16C9D28E00FE8B8D /* Default@2x.png */; };
 		4F667BAE16C9D28E00FE8B8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BAD16C9D28E00FE8B8D /* Default-568h@2x.png */; };
-		4F667BB116C9D28E00FE8B8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BB016C9D28E00FE8B8D /* ViewController.m */; };
+		4F667BB116C9D28E00FE8B8D /* ViewsSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BB016C9D28E00FE8B8D /* ViewsSampleViewController.m */; };
 		4F667BD016C9E7EC00FE8B8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */; };
 		4F667BD316C9E82E00FE8B8D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BD116C9E82000FE8B8D /* MessageUI.framework */; };
-		4F667BD916CA09DF00FE8B8D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BD716CA09DE00FE8B8D /* ViewController.xib */; };
+		4F667BD916CA09DF00FE8B8D /* ViewsSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BD716CA09DE00FE8B8D /* ViewsSampleViewController.xib */; };
 		4F7AF87D16EAA195005C3769 /* MFMailComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87116EAA195005C3769 /* MFMailComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4F7AF87E16EAA195005C3769 /* MFMessageComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87316EAA195005C3769 /* MFMessageComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4F7AF87F16EAA195005C3769 /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87616EAA195005C3769 /* UIActionSheet+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -27,6 +27,10 @@
 		4F7AF88116EAA195005C3769 /* UIPopoverController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4F7AF88416EAA286005C3769 /* NSURLConnection+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88316EAA286005C3769 /* NSURLConnection+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88616EAA2A9005C3769 /* CLLocationManager+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7FD53016FD09D500FECB7F /* UINavigationController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FD52F16FD09D500FECB7F /* UINavigationController+Block.m */; };
+		4F7FD53316FD0A1000FECB7F /* NavigationSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */; };
+		4F7FD57916FD3D3300FECB7F /* item.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7FD57716FD3D3300FECB7F /* item.png */; };
+		4F7FD57A16FD3D3300FECB7F /* item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7FD57816FD3D3300FECB7F /* item@2x.png */; };
 		4FA5202E16EA79E400B65926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA5202C16EA79DC00B65926 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,11 +48,11 @@
 		4F667BA916C9D28E00FE8B8D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4F667BAB16C9D28E00FE8B8D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4F667BAD16C9D28E00FE8B8D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		4F667BAF16C9D28E00FE8B8D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4F667BB016C9D28E00FE8B8D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4F667BAF16C9D28E00FE8B8D /* ViewsSampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewsSampleViewController.h; sourceTree = "<group>"; };
+		4F667BB016C9D28E00FE8B8D /* ViewsSampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewsSampleViewController.m; sourceTree = "<group>"; };
 		4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4F667BD116C9E82000FE8B8D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		4F667BD816CA09DF00FE8B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		4F667BD816CA09DF00FE8B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewsSampleViewController.xib; sourceTree = "<group>"; };
 		4F7AF86716EAA189005C3769 /* iOSBlocksProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSBlocksProtocol.h; path = ../../../Source/iOSBlocksProtocol.h; sourceTree = "<group>"; };
 		4F7AF86816EAA189005C3769 /* iOSBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSBlocks.h; path = ../../../Source/iOSBlocks.h; sourceTree = "<group>"; };
 		4F7AF87016EAA195005C3769 /* MFMailComposeViewController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMailComposeViewController+Block.h"; sourceTree = "<group>"; };
@@ -65,6 +69,12 @@
 		4F7AF88316EAA286005C3769 /* NSURLConnection+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+Block.m"; sourceTree = "<group>"; };
 		4F7AF88516EAA2A9005C3769 /* CLLocationManager+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+Block.h"; sourceTree = "<group>"; };
 		4F7AF88616EAA2A9005C3769 /* CLLocationManager+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+Block.m"; sourceTree = "<group>"; };
+		4F7FD52E16FD09D500FECB7F /* UINavigationController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Block.h"; sourceTree = "<group>"; };
+		4F7FD52F16FD09D500FECB7F /* UINavigationController+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Block.m"; sourceTree = "<group>"; };
+		4F7FD53116FD0A1000FECB7F /* NavigationSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationSampleViewController.h; sourceTree = "<group>"; };
+		4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationSampleViewController.m; sourceTree = "<group>"; };
+		4F7FD57716FD3D3300FECB7F /* item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item.png; sourceTree = "<group>"; };
+		4F7FD57816FD3D3300FECB7F /* item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item@2x.png"; sourceTree = "<group>"; };
 		4FA5202C16EA79DC00B65926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -120,9 +130,11 @@
 			children = (
 				4F667BA616C9D28E00FE8B8D /* AppDelegate.h */,
 				4F667BA716C9D28E00FE8B8D /* AppDelegate.m */,
-				4F667BAF16C9D28E00FE8B8D /* ViewController.h */,
-				4F667BB016C9D28E00FE8B8D /* ViewController.m */,
-				4F667BD716CA09DE00FE8B8D /* ViewController.xib */,
+				4F667BAF16C9D28E00FE8B8D /* ViewsSampleViewController.h */,
+				4F667BB016C9D28E00FE8B8D /* ViewsSampleViewController.m */,
+				4F667BD716CA09DE00FE8B8D /* ViewsSampleViewController.xib */,
+				4F7FD53116FD0A1000FECB7F /* NavigationSampleViewController.h */,
+				4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */,
 				4F667BBA16C9D29400FE8B8D /* Source */,
 				4F667B9E16C9D28E00FE8B8D /* Supporting Files */,
 			);
@@ -139,6 +151,8 @@
 				4F667BA916C9D28E00FE8B8D /* Default.png */,
 				4F667BAB16C9D28E00FE8B8D /* Default@2x.png */,
 				4F667BAD16C9D28E00FE8B8D /* Default-568h@2x.png */,
+				4F7FD57716FD3D3300FECB7F /* item.png */,
+				4F7FD57816FD3D3300FECB7F /* item@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -197,6 +211,8 @@
 				4F7AF87816EAA195005C3769 /* UIAlertView+Block.m */,
 				4F7AF87916EAA195005C3769 /* UIPopoverController+Block.h */,
 				4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */,
+				4F7FD52E16FD09D500FECB7F /* UINavigationController+Block.h */,
+				4F7FD52F16FD09D500FECB7F /* UINavigationController+Block.m */,
 			);
 			name = UIKit;
 			path = ../../../Source/UIKit;
@@ -257,7 +273,9 @@
 				4F667BAA16C9D28E00FE8B8D /* Default.png in Resources */,
 				4F667BAC16C9D28E00FE8B8D /* Default@2x.png in Resources */,
 				4F667BAE16C9D28E00FE8B8D /* Default-568h@2x.png in Resources */,
-				4F667BD916CA09DF00FE8B8D /* ViewController.xib in Resources */,
+				4F667BD916CA09DF00FE8B8D /* ViewsSampleViewController.xib in Resources */,
+				4F7FD57916FD3D3300FECB7F /* item.png in Resources */,
+				4F7FD57A16FD3D3300FECB7F /* item@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +288,7 @@
 			files = (
 				4F667BA416C9D28E00FE8B8D /* main.m in Sources */,
 				4F667BA816C9D28E00FE8B8D /* AppDelegate.m in Sources */,
-				4F667BB116C9D28E00FE8B8D /* ViewController.m in Sources */,
+				4F667BB116C9D28E00FE8B8D /* ViewsSampleViewController.m in Sources */,
 				4F7AF87D16EAA195005C3769 /* MFMailComposeViewController+Block.m in Sources */,
 				4F7AF87E16EAA195005C3769 /* MFMessageComposeViewController+Block.m in Sources */,
 				4F7AF87F16EAA195005C3769 /* UIActionSheet+Block.m in Sources */,
@@ -278,6 +296,8 @@
 				4F7AF88116EAA195005C3769 /* UIPopoverController+Block.m in Sources */,
 				4F7AF88416EAA286005C3769 /* NSURLConnection+Block.m in Sources */,
 				4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */,
+				4F7FD53016FD09D500FECB7F /* UINavigationController+Block.m in Sources */,
+				4F7FD53316FD0A1000FECB7F /* NavigationSampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,12 +312,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4F667BD716CA09DE00FE8B8D /* ViewController.xib */ = {
+		4F667BD716CA09DE00FE8B8D /* ViewsSampleViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4F667BD816CA09DF00FE8B8D /* en */,
 			);
-			name = ViewController.xib;
+			name = ViewsSampleViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
