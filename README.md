@@ -75,7 +75,7 @@ This are some category classes of my own to allow easy implementation of the bas
                             didFailWithError:(FailureBlock)fail;
 ```
 
-## CoreLocation
+## CLLocation
 ```
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
