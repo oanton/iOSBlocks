@@ -1,21 +1,21 @@
 iOS Blocks
 ============
 
-Delegates are a real pain in the ars. Objective-C Blocks rule.
-This are some category classes to allow easy implementation of the basic iOS frameworks & APIs without the need of using delegate protocols but code blocks instead.
+Delegates are a real pain in the ars. Objective-C blocks rule!
+This are some category classes of my own to allow easy implementation of the basic iOS frameworks & APIs without the need of using delegation.
 
 ## UINavigationController
 ```
-- (void)popViewControllerAnimated:(BOOL)animated
-                     onCompletion:(VoidBlock)completion;
+- (void)pushViewController:(UIViewController *)viewController
+                  animated:(BOOL)animated
+              onCompletion:(VoidBlock)completion;
 ```
 
 &
 
 ```
-- (void)pushViewController:(UIViewController *)viewController
-                  animated:(BOOL)animated
-              onCompletion:(VoidBlock)completion;
+- (void)popViewControllerAnimated:(BOOL)animated
+                     onCompletion:(VoidBlock)completion;
 ```
 
 ## UIPopoverController
