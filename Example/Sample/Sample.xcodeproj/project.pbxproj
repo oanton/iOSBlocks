@@ -31,6 +31,8 @@
 		4F7FD53316FD0A1000FECB7F /* NavigationSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */; };
 		4F7FD57916FD3D3300FECB7F /* item.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7FD57716FD3D3300FECB7F /* item.png */; };
 		4F7FD57A16FD3D3300FECB7F /* item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7FD57816FD3D3300FECB7F /* item@2x.png */; };
+		4F7FD57D16FD400500FECB7F /* LocationSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FD57C16FD400500FECB7F /* LocationSampleViewController.m */; };
+		4F7FD58016FD406700FECB7F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7FD57E16FD406000FECB7F /* MapKit.framework */; };
 		4FA5202E16EA79E400B65926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA5202C16EA79DC00B65926 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,9 @@
 		4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationSampleViewController.m; sourceTree = "<group>"; };
 		4F7FD57716FD3D3300FECB7F /* item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item.png; sourceTree = "<group>"; };
 		4F7FD57816FD3D3300FECB7F /* item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item@2x.png"; sourceTree = "<group>"; };
+		4F7FD57B16FD400500FECB7F /* LocationSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSampleViewController.h; sourceTree = "<group>"; };
+		4F7FD57C16FD400500FECB7F /* LocationSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSampleViewController.m; sourceTree = "<group>"; };
+		4F7FD57E16FD406000FECB7F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4FA5202C16EA79DC00B65926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -83,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F7FD58016FD406700FECB7F /* MapKit.framework in Frameworks */,
 				4FA5202E16EA79E400B65926 /* CoreLocation.framework in Frameworks */,
 				4F667BD316C9E82E00FE8B8D /* MessageUI.framework in Frameworks */,
 				4F667BD016C9E7EC00FE8B8D /* MobileCoreServices.framework in Frameworks */,
@@ -115,6 +121,7 @@
 		4F667B9616C9D28E00FE8B8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F7FD57E16FD406000FECB7F /* MapKit.framework */,
 				4FA5202C16EA79DC00B65926 /* CoreLocation.framework */,
 				4F667BD116C9E82000FE8B8D /* MessageUI.framework */,
 				4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */,
@@ -135,6 +142,8 @@
 				4F667BD716CA09DE00FE8B8D /* ViewsSampleViewController.xib */,
 				4F7FD53116FD0A1000FECB7F /* NavigationSampleViewController.h */,
 				4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */,
+				4F7FD57B16FD400500FECB7F /* LocationSampleViewController.h */,
+				4F7FD57C16FD400500FECB7F /* LocationSampleViewController.m */,
 				4F667BBA16C9D29400FE8B8D /* Source */,
 				4F667B9E16C9D28E00FE8B8D /* Supporting Files */,
 			);
@@ -298,6 +307,7 @@
 				4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */,
 				4F7FD53016FD09D500FECB7F /* UINavigationController+Block.m in Sources */,
 				4F7FD53316FD0A1000FECB7F /* NavigationSampleViewController.m in Sources */,
+				4F7FD57D16FD400500FECB7F /* LocationSampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

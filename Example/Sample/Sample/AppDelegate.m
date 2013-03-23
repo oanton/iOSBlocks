@@ -10,6 +10,7 @@
 
 #import "ViewsSampleViewController.h"
 #import "NavigationSampleViewController.h"
+#import "LocationSampleViewController.h"
 
 @implementation AppDelegate
 
@@ -30,8 +31,9 @@
         
         ViewsSampleViewController *viewsSampleVC = [[ViewsSampleViewController alloc] initWithNibName:@"ViewsSampleViewController" bundle:nil];
         NavigationSampleViewController *navigationSampleVC = [[NavigationSampleViewController alloc] init];
+        LocationSampleViewController *locationSampleVC = [[LocationSampleViewController alloc] init];
         
-        NSArray *viewControllers = [NSArray arrayWithObjects:viewsSampleVC, navigationSampleVC, nil];
+        NSArray *viewControllers = [NSArray arrayWithObjects:viewsSampleVC, navigationSampleVC, locationSampleVC, nil];
         
         NSMutableArray *navigationControllers = [NSMutableArray new];
         for (UIViewController *viewController in viewControllers) {
