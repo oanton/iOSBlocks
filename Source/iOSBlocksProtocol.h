@@ -28,8 +28,8 @@ typedef void (^DataBlock)(NSData *data);
 typedef void (^SuccessBlock)(NSHTTPURLResponse *HTTPResponse);
 typedef void (^FailureBlock)(NSError *error);
 
-typedef void (^LocationBlock)(NSArray *locations);
+typedef void (^ListBlock)(NSArray *list);
 
-typedef void (^StatusBlock)(int constant);
+typedef void (^StatusBlock)(unsigned int status);
 
 @end

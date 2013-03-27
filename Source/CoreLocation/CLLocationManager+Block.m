@@ -8,7 +8,7 @@
 
 #import "CLLocationManager+Block.h"
 
-static LocationBlock _locationBlock;
+static ListBlock _locationBlock;
 static FailureBlock _failureBlock;
 static StatusBlock _statusBlock;
 
@@ -28,13 +28,13 @@ static StatusBlock _statusBlock;
 
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
-            didChangeAuthorizationStatus:(StatusBlock)status
-                      didUpdateLocations:(LocationBlock)located
+            didChangeAuthorizationStatus:(StatusBlock)changedStatus
+                      didUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed
 {
+    _statusBlock = [changedStatus copy];
     _locationBlock = [located copy];
     _failureBlock = [failed copy];
-    _statusBlock = [status copy];
     
     [[CLLocationManager sharedManager] setDelegate:[self class]];
     [[CLLocationManager sharedManager] setDistanceFilter:filter];
@@ -45,7 +45,7 @@ static StatusBlock _statusBlock;
 
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
-                      didUpdateLocations:(LocationBlock)located
+                      didUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed
 {
     [CLLocationManager updateLocationWithDistanceFilter:filter
@@ -55,7 +55,7 @@ static StatusBlock _statusBlock;
                                        didFailWithError:failed];
 }
 
-+ (void)locationManagerDidUpdateLocations:(LocationBlock)located
++ (void)locationManagerDidUpdateLocations:(ListBlock)located
                          didFailWithError:(FailureBlock)failed
 {
     [CLLocationManager updateLocationWithDistanceFilter:1.0
@@ -68,18 +68,26 @@ static StatusBlock _statusBlock;
 + (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     [[CLLocationManager sharedManager] stopUpdatingLocation];
-    _locationBlock(locations);
+    
+    if (_locationBlock) {
+        _locationBlock(locations);
+    }
 }
 
 + (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     [[CLLocationManager sharedManager] stopUpdatingLocation];
-    _failureBlock(error);
+    
+    if (_failureBlock) {
+        _failureBlock(error);
+    }
 }
 
 + (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    _statusBlock(status);
+    if (_statusBlock) {
+        _statusBlock(status);
+    }
 }
 
 @end

@@ -26,8 +26,8 @@
  */
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
-            didChangeAuthorizationStatus:(StatusBlock)status
-                      didUpdateLocations:(LocationBlock)located
+            didChangeAuthorizationStatus:(StatusBlock)changedStatus
+                      didUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed;
 
 /**
@@ -41,7 +41,7 @@
  */
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
-                      didUpdateLocations:(LocationBlock)located
+                      didUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed;
 
 /**
@@ -50,7 +50,7 @@
  * @param located A block object to be executed when new location data is available. Returns an array of CLLocation objects containing the location data. This array always contains at least one object representing the current location.
  * @param failed A block object to be executed when the location manager was unable to retrieve a location value. Returns the error object containing the reason the location or heading could not be retrieved.
  */
-+ (void)locationManagerDidUpdateLocations:(LocationBlock)located
++ (void)locationManagerDidUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed;
 
 @end
