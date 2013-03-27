@@ -13,21 +13,21 @@
 #define kPhotoActionSheetTag 10000
 
 static DismissBlock _dismissBlock;
-static CancelBlock _cancelBlock;
+static VoidBlock _cancelBlock;
 static PhotoPickedBlock _photoPickedBlock;
 static UIViewController *_presentVC;
 static UIView *_inView;
 
 @implementation UIActionSheet (Block)
 
-+ (UIActionSheet *)actionSheetWithTitle:(NSString *)title
-                                  style:(UIActionSheetStyle)sheetStyle
-                      cancelButtonTitle:(NSString *)cancelButtonTitle
-                           buttonTitles:(NSArray *)buttonTitles
-                         disabledTitles:(NSArray *)disabledTitles
-                             showInView:(UIView *)view
-                              onDismiss:(DismissBlock)dismissed
-                               onCancel:(CancelBlock)cancelled
++ (void)actionSheetWithTitle:(NSString *)title
+                       style:(UIActionSheetStyle)sheetStyle
+           cancelButtonTitle:(NSString *)cancelButtonTitle
+                buttonTitles:(NSArray *)buttonTitles
+              disabledTitles:(NSArray *)disabledTitles
+                  showInView:(UIView *)view
+                   onDismiss:(DismissBlock)dismissed
+                    onCancel:(VoidBlock)cancelled
 {
     _cancelBlock  = [cancelled copy];
     _dismissBlock  = [dismissed copy];
@@ -75,8 +75,6 @@ static UIView *_inView;
     if ([_inView isKindOfClass:[UIBarButtonItem class]]) {
         [actionSheet showFromBarButtonItem:(UIBarButtonItem *)_inView animated:YES];
     }
-    
-    return actionSheet;
 }
 
 + (void)photoPickerWithTitle:(NSString *)title
@@ -84,7 +82,7 @@ static UIView *_inView;
                   showInView:(UIView *)view
                    presentVC:(UIViewController *)presentVC
                onPhotoPicked:(PhotoPickedBlock)photoPicked
-                    onCancel:(CancelBlock)cancelled
+                    onCancel:(VoidBlock)cancelled
 {
     _photoPickedBlock = [photoPicked copy];
     _cancelBlock = [cancelled copy];
@@ -181,18 +179,15 @@ static UIView *_inView;
                 [_presentVC presentViewController:pickerController animated:YES completion:NULL];
             }
             else {
-#ifdef UNIVERSAL
-                appDelegate.popover = [UIPopoverController popOverWithContentViewController:pickerController
-                                                                                 showInView:_inView
-                                                                            onShouldDismiss:^(void){
-                                                                                [appDelegate.popover dismissPopoverAnimated:YES];
-                                                                            }
-                                                                                   onCancel:^(void){
-                                                                                       NSLog(@"Cancelled");
-                                                                                   }
-                                       ];
-#endif
-                
+                [UIPopoverController popOverWithContentViewController:pickerController
+                                                           showInView:_inView
+                                                      onShouldDismiss:^(void){
+                                                          [[UIPopoverController sharedPopover] dismissPopoverAnimated:YES];
+                                                      }
+                                                             onCancel:^(void){
+                                                                 NSLog(@"Cancelled");
+                                                             }
+                 ];
             }
         }
         else

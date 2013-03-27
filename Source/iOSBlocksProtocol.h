@@ -3,19 +3,21 @@
 //  iOS Blocks
 //
 //  Created by Ignacio Romero Zurbuchen on 2/12/13.
-//  Copyright (c) 2013 DZEN. All rights reserved.
+//  Copyright (c) 2011 DZen Interaktiv.
+//  Licence: MIT-Licence
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 
+/**
+ * @brief Generic block constants for free usage over different classes.
+ */
 @protocol iOSBlocksProtocol <NSObject>
 
 typedef void (^VoidBlock)();
 typedef void (^CompletionBlock)(BOOL completed);
 
 typedef void (^DismissBlock)(int buttonIndex, NSString *buttonTitle);
-typedef void (^CancelBlock)();
 typedef void (^PhotoPickedBlock)(UIImage *chosenImage);
 
 typedef void (^ComposeCreatedBlock)(UIViewController *controller);

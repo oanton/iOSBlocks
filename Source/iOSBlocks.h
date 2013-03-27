@@ -2,8 +2,9 @@
 //  iOSBlocks.h
 //  iOS Blocks
 //
-//  Created by Ignacio on 2/12/13.
-//  Copyright (c) 2013 DZEN. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 2/12/13.
+//  Copyright (c) 2011 DZen Interaktiv.
+//  Licence: MIT-Licence
 //
 
 #import "UIActionSheet+Block.h"

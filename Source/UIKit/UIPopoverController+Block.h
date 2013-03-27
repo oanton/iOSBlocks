@@ -11,9 +11,13 @@
 
 @interface UIPopoverController (Block) <UIPopoverControllerDelegate, iOSBlocksProtocol>
 
++ (UIPopoverController *)sharedPopover;
+
++ (void)setSharedPopover:(UIPopoverController *)popover;
+
 + (UIPopoverController *)popOverWithContentViewController:(UIViewController *)controller
                                                showInView:(UIView *)view
                                           onShouldDismiss:(VoidBlock)shouldDismiss
-                                                 onCancel:(CancelBlock)cancelled;
+                                                 onCancel:(VoidBlock)cancelled;
 
 @end

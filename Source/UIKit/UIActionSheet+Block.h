@@ -9,22 +9,25 @@
 #import <UIKit/UIKit.h>
 #import "iOSBlocksProtocol.h"
 
+/**
+ * @brief UIActionSheet Delegate block methods.
+ */
 @interface UIActionSheet (Block) <UIActionSheetDelegate, UIImagePickerControllerDelegate, iOSBlocksProtocol>
 
-+ (UIActionSheet *)actionSheetWithTitle:(NSString *)title
-                                  style:(UIActionSheetStyle)sheetStyle
-                      cancelButtonTitle:(NSString *)cancelButtonTitle
-                           buttonTitles:(NSArray *)buttonTitles
-                         disabledTitles:(NSArray *)disabledTitles
-                             showInView:(UIView *)view
-                              onDismiss:(DismissBlock)dismissed
-                               onCancel:(CancelBlock)cancelled;
++ (void)actionSheetWithTitle:(NSString *)title
+                       style:(UIActionSheetStyle)sheetStyle
+           cancelButtonTitle:(NSString *)cancelButtonTitle
+                buttonTitles:(NSArray *)buttonTitles
+              disabledTitles:(NSArray *)disabledTitles
+                  showInView:(UIView *)view
+                   onDismiss:(DismissBlock)dismissed
+                    onCancel:(VoidBlock)cancelled;
 
 + (void)photoPickerWithTitle:(NSString *)title
            cancelButtonTitle:(NSString *)cancelButtonTitle
                   showInView:(UIView *)view
                    presentVC:(UIViewController *)presentVC
                onPhotoPicked:(PhotoPickedBlock)photoPicked
-                    onCancel:(CancelBlock)cancelled;
+                    onCancel:(VoidBlock)cancelled;
 
 @end

@@ -9,16 +9,16 @@
 #import "UIAlertView+Block.h"
 
 static DismissBlock _dismissBlock;
-static CancelBlock _cancelBlock;
+static VoidBlock _cancelBlock;
 
 @implementation UIAlertView (Block)
 
-+ (UIAlertView *)alertViewWithTitle:(NSString *)title                    
-                    message:(NSString *)message 
-          cancelButtonTitle:(NSString *)cancelButtonTitle
-          otherButtonTitles:(NSArray *)otherButtons
-                  onDismiss:(DismissBlock)dismissed                   
-                   onCancel:(CancelBlock)cancelled
++ (void)alertViewWithTitle:(NSString *)title
+                   message:(NSString *)message
+         cancelButtonTitle:(NSString *)cancelButtonTitle
+         otherButtonTitles:(NSArray *)otherButtons
+                 onDismiss:(DismissBlock)dismissed
+                  onCancel:(VoidBlock)cancelled
 {
     _dismissBlock  = [dismissed copy];
     _cancelBlock  = [cancelled copy];
@@ -28,25 +28,23 @@ static CancelBlock _cancelBlock;
                                                    delegate:[self class]
                                           cancelButtonTitle:cancelButtonTitle
                                           otherButtonTitles:nil];
-
+    
     for (NSString *buttonTitle in otherButtons) {
         [alert addButtonWithTitle:buttonTitle];
     }
     
     [alert show];
-    
-    return alert;
 }
 
-+ (UIAlertView *)alertViewWithTitle:(NSString *)title
++ (void)alertViewWithTitle:(NSString *)title
                             message:(NSString *)message
 {
-    return [UIAlertView alertViewWithTitle:title
-                                   message:message
-                         cancelButtonTitle:NSLocalizedString(@"Dismiss", @"")];
+    [UIAlertView alertViewWithTitle:title
+                            message:message
+                  cancelButtonTitle:NSLocalizedString(@"OK", @"OK")];
 }
 
-+ (UIAlertView *)alertViewWithTitle:(NSString *)title
++ (void)alertViewWithTitle:(NSString *)title
                             message:(NSString *)message
                   cancelButtonTitle:(NSString *)cancelButtonTitle
 {
@@ -54,9 +52,8 @@ static CancelBlock _cancelBlock;
                                                     message:message
                                                    delegate:nil
                                           cancelButtonTitle:cancelButtonTitle
-                                          otherButtonTitles: nil];
+                                          otherButtonTitles:nil];
     [alert show];
-    return alert;
 }
 
 

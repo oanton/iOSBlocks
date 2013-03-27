@@ -9,14 +9,36 @@
 #import "UIPopoverController+Block.h"
 
 static VoidBlock _shouldDismissBlock;
-static CancelBlock _cancelBlock;
+static VoidBlock _cancelBlock;
 
 @implementation UIPopoverController (Block)
+
++ (UIPopoverController *)sharedPopover
+{
+    static UIPopoverController *_sharedPopover = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        _sharedPopover = [[UIPopoverController alloc] init];
+    });
+    
+    return _sharedPopover;
+}
+
++ (void)setSharedPopover:(UIPopoverController *)popover
+{
+    static UIPopoverController *_sharedPopover = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        _sharedPopover = popover;
+    });
+}
 
 + (UIPopoverController *)popOverWithContentViewController:(UIViewController *)controller
                                                showInView:(UIView *)view
                                           onShouldDismiss:(VoidBlock)shouldDismiss
-                                                 onCancel:(CancelBlock)cancelled
+                                                 onCancel:(VoidBlock)cancelled
 {
     NSLog(@"%@",NSStringFromClass(view.class));
     
@@ -40,6 +62,8 @@ static CancelBlock _cancelBlock;
 
 + (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
 {
+    NSLog(@"%s",__FUNCTION__);
+    
     _shouldDismissBlock();
     return YES;
 }

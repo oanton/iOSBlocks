@@ -55,6 +55,16 @@ static StatusBlock _statusBlock;
                                        didFailWithError:failed];
 }
 
++ (void)locationManagerDidUpdateLocations:(LocationBlock)located
+                         didFailWithError:(FailureBlock)failed
+{
+    [CLLocationManager updateLocationWithDistanceFilter:1.0
+                                     andDesiredAccuracy:kCLLocationAccuracyBest
+                           didChangeAuthorizationStatus:NULL
+                                     didUpdateLocations:located
+                                       didFailWithError:failed];
+}
+
 + (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     [[CLLocationManager sharedManager] stopUpdatingLocation];

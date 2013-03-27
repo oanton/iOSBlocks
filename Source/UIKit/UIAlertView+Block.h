@@ -9,20 +9,46 @@
 #import <UIKit/UIKit.h>
 #import "iOSBlocksProtocol.h"
 
+/**
+ * @brief UIAlertView Delegate block methods.
+ */
 @interface UIAlertView (Block) <UIAlertViewDelegate, iOSBlocksProtocol>
 
-+ (UIAlertView *)alertViewWithTitle:(NSString *)title
-                            message:(NSString *)message
-                  cancelButtonTitle:(NSString *)cancelButtonTitle
-                  otherButtonTitles:(NSArray *)otherButtons
-                          onDismiss:(DismissBlock)dismissed
-                           onCancel:(CancelBlock)cancelled;
+/**
+ * Displays an alert view filled with titles and buttons, and with update blocks to notify when the user dismisses or cancels the alert.
+ *
+ * @param title The string that appears in the receiver’s title bar.
+ * @param message Descriptive text that provides more details than the title.
+ * @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
+ * @param otherButtonTitles The title of aditional buttons.
+ * @param dismissed A block object to be executed afterthean alert view is dismissed from the screen. Returns the pressed button's index and title.
+ * @param cancelled A block object to be executed after the alert view is cancelled.
+ */
++ (void)alertViewWithTitle:(NSString *)title
+                   message:(NSString *)message
+         cancelButtonTitle:(NSString *)cancelButtonTitle
+         otherButtonTitles:(NSArray *)otherButtonTitles
+                 onDismiss:(DismissBlock)dismissed
+                  onCancel:(VoidBlock)cancelled;
 
-+ (UIAlertView *)alertViewWithTitle:(NSString *)title
-                            message:(NSString *)message;
+/**
+ * Shorter method to Display an alert view with titles, description message and cancel button title, but with no blocks.
+ *
+ * @param title The string that appears in the receiver’s title bar.
+ * @param message Descriptive text that provides more details than the title.
+ * @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
+ */
++ (void)alertViewWithTitle:(NSString *)title
+                   message:(NSString *)message
+         cancelButtonTitle:(NSString *)cancelButtonTitle;
 
-+ (UIAlertView *)alertViewWithTitle:(NSString *)title
-                            message:(NSString *)message
-                  cancelButtonTitle:(NSString *)cancelButtonTitle;
+/**
+ * Shorter method to Display an alert view with titles and description message, but with no blocks.
+ *
+ * @param title The string that appears in the receiver’s title bar.
+ * @param message Descriptive text that provides more details than the title.
+ */
++ (void)alertViewWithTitle:(NSString *)title
+                   message:(NSString *)message;
 
 @end
