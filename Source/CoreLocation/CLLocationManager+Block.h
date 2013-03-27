@@ -11,9 +11,16 @@
 
 @interface CLLocationManager (Block) <CLLocationManagerDelegate, iOSBlocksProtocol>
 
+
++ (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
+                      andDesiredAccuracy:(CLLocationAccuracy)accuracy
+            didChangeAuthorizationStatus:(StatusBlock)status
+                      didUpdateLocations:(LocationBlock)located
+                        didFailWithError:(FailureBlock)failed;
+
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
                       didUpdateLocations:(LocationBlock)located
-                        didFailWithError:(FailureBlock)fail;
+                        didFailWithError:(FailureBlock)failed;
 
 @end

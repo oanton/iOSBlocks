@@ -10,6 +10,7 @@
 
 static LocationBlock _locationBlock;
 static FailureBlock _failureBlock;
+static StatusBlock _statusBlock;
 
 @implementation CLLocationManager (Block)
 
@@ -27,17 +28,31 @@ static FailureBlock _failureBlock;
 
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
+            didChangeAuthorizationStatus:(StatusBlock)status
                       didUpdateLocations:(LocationBlock)located
                         didFailWithError:(FailureBlock)failed
 {
     _locationBlock = [located copy];
     _failureBlock = [failed copy];
+    _statusBlock = [status copy];
     
     [[CLLocationManager sharedManager] setDelegate:[self class]];
     [[CLLocationManager sharedManager] setDistanceFilter:filter];
     [[CLLocationManager sharedManager] setDesiredAccuracy:accuracy];
     
     [[CLLocationManager sharedManager] startUpdatingLocation];
+}
+
++ (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
+                      andDesiredAccuracy:(CLLocationAccuracy)accuracy
+                      didUpdateLocations:(LocationBlock)located
+                        didFailWithError:(FailureBlock)failed
+{
+    [CLLocationManager updateLocationWithDistanceFilter:filter
+                                     andDesiredAccuracy:accuracy
+                           didChangeAuthorizationStatus:NULL
+                                     didUpdateLocations:located
+                                       didFailWithError:failed];
 }
 
 + (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -50,6 +65,11 @@ static FailureBlock _failureBlock;
 {
     [[CLLocationManager sharedManager] stopUpdatingLocation];
     _failureBlock(error);
+}
+
++ (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    _statusBlock(status);
 }
 
 @end

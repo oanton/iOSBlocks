@@ -28,4 +28,6 @@ typedef void (^FailureBlock)(NSError *error);
 
 typedef void (^LocationBlock)(NSArray *locations);
 
+typedef void (^StatusBlock)(int constant);
+
 @end
