@@ -13,6 +13,9 @@ __unused static NSString *kMFAttachmentData = @"AttachmentData";
 __unused static NSString *kMFAttachmentMimeType = @"AttachmentMimeType";
 __unused static NSString *kMFAttachmentFileName = @"AttachmentFileName";
 
+/**
+ * @brief MessageUI MailComposeViewController Delegate block methods.
+ */
 @interface MFMailComposeViewController (Block) <MFMailComposeViewControllerDelegate, iOSBlocksProtocol>
 
 + (void)mailWithSubject:(NSString *)subject

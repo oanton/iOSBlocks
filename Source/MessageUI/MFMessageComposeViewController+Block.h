@@ -9,6 +9,9 @@
 #import <MessageUI/MessageUI.h>
 #import "iOSBlocksProtocol.h"
 
+/**
+ * @brief MessageUI MessageComposeViewController Delegate block methods.
+ */
 @interface MFMessageComposeViewController (Block) <MFMessageComposeViewControllerDelegate, iOSBlocksProtocol>
 
 + (void)messageWithBody:(NSString *)body

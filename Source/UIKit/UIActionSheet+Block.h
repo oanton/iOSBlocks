@@ -23,6 +23,12 @@
                    onDismiss:(DismissBlock)dismissed
                     onCancel:(VoidBlock)cancelled;
 
++ (void)actionSheetWithTitle:(NSString *)title
+                buttonTitles:(NSArray *)buttonTitles
+                  showInView:(UIView *)view
+                   onDismiss:(DismissBlock)dismissed
+                    onCancel:(VoidBlock)cancelled;
+
 + (void)photoPickerWithTitle:(NSString *)title
            cancelButtonTitle:(NSString *)cancelButtonTitle
                   showInView:(UIView *)view

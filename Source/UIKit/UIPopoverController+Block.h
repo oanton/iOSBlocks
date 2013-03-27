@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "iOSBlocksProtocol.h"
 
+/**
+ * @brief UIPopoverController Delegate block methods.
+ */
 @interface UIPopoverController (Block) <UIPopoverControllerDelegate, iOSBlocksProtocol>
 
 + (UIPopoverController *)sharedPopover;
 
-+ (void)setSharedPopover:(UIPopoverController *)popover;
-
-+ (UIPopoverController *)popOverWithContentViewController:(UIViewController *)controller
-                                               showInView:(UIView *)view
-                                          onShouldDismiss:(VoidBlock)shouldDismiss
-                                                 onCancel:(VoidBlock)cancelled;
++ (void)popOverWithContentViewController:(UIViewController *)controller
+                              showInView:(UIView *)view
+                         onShouldDismiss:(VoidBlock)shouldDismiss
+                                onCancel:(VoidBlock)cancelled;
 
 @end

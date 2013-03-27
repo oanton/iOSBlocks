@@ -25,23 +25,11 @@ static VoidBlock _cancelBlock;
     return _sharedPopover;
 }
 
-+ (void)setSharedPopover:(UIPopoverController *)popover
++ (void)popOverWithContentViewController:(UIViewController *)controller
+                              showInView:(UIView *)view
+                         onShouldDismiss:(VoidBlock)shouldDismiss
+                                onCancel:(VoidBlock)cancelled
 {
-    static UIPopoverController *_sharedPopover = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        _sharedPopover = popover;
-    });
-}
-
-+ (UIPopoverController *)popOverWithContentViewController:(UIViewController *)controller
-                                               showInView:(UIView *)view
-                                          onShouldDismiss:(VoidBlock)shouldDismiss
-                                                 onCancel:(VoidBlock)cancelled
-{
-    NSLog(@"%@",NSStringFromClass(view.class));
-    
     _shouldDismissBlock = [shouldDismiss copy];
     _cancelBlock = [cancelled copy];
     
@@ -56,8 +44,6 @@ static VoidBlock _cancelBlock;
         NSLog(@"presentPopoverFromRect");
         [popover presentPopoverFromRect:view.frame inView:view.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
-    
-    return popover;
 }
 
 + (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController

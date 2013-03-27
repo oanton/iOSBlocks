@@ -77,6 +77,22 @@ static UIView *_inView;
     }
 }
 
++ (void)actionSheetWithTitle:(NSString *)title
+                buttonTitles:(NSArray *)buttonTitles
+                  showInView:(UIView *)view
+                   onDismiss:(DismissBlock)dismissed
+                    onCancel:(VoidBlock)cancelled
+{
+    [UIActionSheet actionSheetWithTitle:title
+                                  style:UIActionSheetStyleAutomatic
+                      cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                           buttonTitles:buttonTitles
+                         disabledTitles:nil
+                             showInView:view
+                              onDismiss:dismissed
+                               onCancel:cancelled];
+}
+
 + (void)photoPickerWithTitle:(NSString *)title
            cancelButtonTitle:(NSString *)cancelButtonTitle
                   showInView:(UIView *)view
@@ -182,6 +198,7 @@ static UIView *_inView;
                 [UIPopoverController popOverWithContentViewController:pickerController
                                                            showInView:_inView
                                                       onShouldDismiss:^(void){
+                                                          NSLog(@"%s",__FUNCTION__);
                                                           [[UIPopoverController sharedPopover] dismissPopoverAnimated:YES];
                                                       }
                                                              onCancel:^(void){
