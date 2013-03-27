@@ -11,17 +11,12 @@
 static VoidBlock _shouldDismissBlock;
 static VoidBlock _cancelBlock;
 
+static UIPopoverController *_sharedPopover;
+
 @implementation UIPopoverController (Block)
 
 + (UIPopoverController *)sharedPopover
 {
-    static UIPopoverController *_sharedPopover = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        _sharedPopover = [[UIPopoverController alloc] init];
-    });
-    
     return _sharedPopover;
 }
 
@@ -37,19 +32,17 @@ static VoidBlock _cancelBlock;
     popover.delegate = [self class];
     
     if ([view isKindOfClass:[UIBarButtonItem class]]) {
-        NSLog(@"presentPopoverFromBarButtonItem");
         [popover presentPopoverFromBarButtonItem:(UIBarButtonItem *)view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else if ([view isKindOfClass:[UIView class]]) {
-        NSLog(@"presentPopoverFromRect");
         [popover presentPopoverFromRect:view.frame inView:view.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
+    
+    _sharedPopover = popover;
 }
 
 + (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
 {
-    NSLog(@"%s",__FUNCTION__);
-    
     _shouldDismissBlock();
     return YES;
 }

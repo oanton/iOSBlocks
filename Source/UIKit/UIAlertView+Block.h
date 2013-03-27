@@ -21,8 +21,8 @@
  * @param message Descriptive text that provides more details than the title.
  * @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
  * @param otherButtonTitles The title of aditional buttons.
- * @param dismissed A block object to be executed afterthean alert view is dismissed from the screen. Returns the pressed button's index and title.
- * @param cancelled A block object to be executed after the alert view is cancelled.
+ * @param dismissed A block object to be executed after the alert view is dismissed from the screen. Returns the pressed button's index and title.
+ * @param cancelled A block object to be executed when the alert view is cancelled by the user.
  */
 + (void)alertViewWithTitle:(NSString *)title
                    message:(NSString *)message

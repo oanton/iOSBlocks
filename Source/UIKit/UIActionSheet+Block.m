@@ -59,7 +59,6 @@ static UIView *_inView;
     [actionSheet addButtonWithTitle:cancelButtonTitle];
     actionSheet.cancelButtonIndex = buttonTitles.count-1;
     
-    
     if (cancelButtonTitle) {
         actionSheet.cancelButtonIndex ++;
     }
@@ -125,12 +124,11 @@ static UIView *_inView;
 		cancelButtonIndex ++;
 	}
 	
-    
 	[actionSheet addButtonWithTitle:cancelButtonTitle];
 	cancelButtonIndex ++;
 	
     actionSheet.tag = kPhotoActionSheetTag;
-	actionSheet.cancelButtonIndex = cancelButtonIndex;		 
+	actionSheet.cancelButtonIndex = cancelButtonIndex;
 
     if ([_inView isKindOfClass:[UIView class]]) {
         [actionSheet showInView:_inView];
@@ -184,7 +182,7 @@ static UIView *_inView;
             pickerController.allowsEditing = NO;
             pickerController.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
             
-            if(buttonIndex == 1) {                
+            if (buttonIndex == 1) {                
                 pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
             }
             else if(buttonIndex == 2) {
@@ -198,11 +196,9 @@ static UIView *_inView;
                 [UIPopoverController popOverWithContentViewController:pickerController
                                                            showInView:_inView
                                                       onShouldDismiss:^(void){
-                                                          NSLog(@"%s",__FUNCTION__);
                                                           [[UIPopoverController sharedPopover] dismissPopoverAnimated:YES];
                                                       }
                                                              onCancel:^(void){
-                                                                 NSLog(@"Cancelled");
                                                              }
                  ];
             }

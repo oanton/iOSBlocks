@@ -54,6 +54,7 @@
                                           [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
                                       }
                                         onFinish:^(UIViewController *controller, NSError *error){
+                                            NSLog(@"MFMailComposeViewController Cancelled");
                                             [controller dismissViewControllerAnimated:YES completion:NULL];
                                         }
      ];
@@ -67,6 +68,7 @@
                                              [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
                                          }
                                            onFinish:^(UIViewController *controller, NSError *error){
+                                               NSLog(@"MFMessageComposeViewController Cancelled");
                                                [controller dismissViewControllerAnimated:YES completion:NULL];
                                            }
      ];
@@ -86,7 +88,7 @@
                                   NSLog(@"Pressed button : %@",buttonTitle);
                               }
                                onCancel:^(void){
-                                   NSLog(@"Cancelled");
+                                   NSLog(@"UIActionSheet Cancelled");
                                }
      ];
 }
@@ -103,7 +105,7 @@
                               NSLog(@"Choosed an image with size: %@", NSStringFromCGSize(chosenImage.size));
                           }
                                onCancel:^(void){
-                                   NSLog(@"Cancelled");
+                                   NSLog(@"UIActionSheet Cancelled");
                                }
      ];
 }
@@ -118,7 +120,7 @@
                               NSLog(@"Pressed button : %@",buttonTitle);
                           }
                            onCancel:^(void){
-                               NSLog(@"Cancelled");
+                               NSLog(@"UIAlertView Cancelled");
                            }
      ];
 }
@@ -131,14 +133,14 @@
     contentViewController.contentSizeForViewInPopover = CGSizeMake(320.0, 500.0);
     contentViewController.view.backgroundColor = [UIColor greenColor];
     
-    appDelegate.popover = [UIPopoverController popOverWithContentViewController:contentViewController
-                                                         showInView:button
-                                                    onShouldDismiss:^(void){
-                                                        [appDelegate.popover dismissPopoverAnimated:YES];
-                                                    }
-                                                           onCancel:^(void){
-                                                               NSLog(@"Cancelled");
-                                                           }
+    [UIPopoverController popOverWithContentViewController:contentViewController
+                                               showInView:button
+                                          onShouldDismiss:^(void){
+                                              [[UIPopoverController sharedPopover] dismissPopoverAnimated:YES];
+                                          }
+                                                 onCancel:^(void){
+                                                     NSLog(@"UIPopoverController Cancelled");
+                                                 }
      ];
 }
 

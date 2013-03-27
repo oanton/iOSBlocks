@@ -14,6 +14,18 @@
  */
 @interface UIActionSheet (Block) <UIActionSheetDelegate, UIImagePickerControllerDelegate, iOSBlocksProtocol>
 
+/**
+ * Displays an action sheet filled with titles and buttons, and with update blocks to notify when the user dismisses or cancels the action sheet.
+ *
+ * @param title A string to display in the title area of the action sheet. Pass nil if you do not want to display any text in the title area.
+ * @param sheetStyle The action sheet presentation style.
+ * @param cancelButtonTitle The title of the cancel button or nil if there is no cancel.
+ * @param buttonTitles The titles of any additional buttons you want to add. 
+ * @param disabledTitles An array of button titles to be disabled.
+ * @param view The view from which the action sheet originates.
+ * @param dismissed A block object to be executed after the action sheet is dismissed from the screen. Returns the pressed button's index and title.
+ * @param cancelled A block object to be executed when the action sheet view is cancelled by the user.
+ */
 + (void)actionSheetWithTitle:(NSString *)title
                        style:(UIActionSheetStyle)sheetStyle
            cancelButtonTitle:(NSString *)cancelButtonTitle
@@ -23,12 +35,31 @@
                    onDismiss:(DismissBlock)dismissed
                     onCancel:(VoidBlock)cancelled;
 
+/**
+ * Displays a standard action sheet filled with titles and buttons, and with update blocks to notify when the user dismisses or cancels the action sheet.
+ *
+ * @param title A string to display in the title area of the action sheet. Pass nil if you do not want to display any text in the title area.
+ * @param buttonTitles The titles of any additional buttons you want to add.
+ * @param view The view from which the action sheet originates.
+ * @param dismissed A block object to be executed after the action sheet is dismissed from the screen. Returns the pressed button's index and title.
+ * @param cancelled A block object to be executed when the action sheet view is cancelled by the user.
+ */
 + (void)actionSheetWithTitle:(NSString *)title
                 buttonTitles:(NSArray *)buttonTitles
                   showInView:(UIView *)view
                    onDismiss:(DismissBlock)dismissed
                     onCancel:(VoidBlock)cancelled;
 
+/**
+ * Displays a photo picker action sheet, with update blocks to notify when the user chooses a pitcure or cancels the action sheet.
+ *
+ * @param title A string to display in the title area of the action sheet. Pass nil if you do not want to display any text in the title area.
+ * @param cancelButtonTitle The title of the cancel button or nil if there is no cancel.
+ * @param view The view from which the action sheet originates.
+ * @param presentVC The viewController from where the UIImagePickerController should be modaly presented and dismissed.
+ * @param photoPicked A block object to be executed when the user picked a still image.
+ * @param cancelled A block object to be executed when the action sheet view is cancelled by the user.
+ */
 + (void)photoPickerWithTitle:(NSString *)title
            cancelButtonTitle:(NSString *)cancelButtonTitle
                   showInView:(UIView *)view

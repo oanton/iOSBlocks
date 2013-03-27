@@ -15,7 +15,6 @@
  */
 @interface CLLocationManager (Block) <CLLocationManagerDelegate, iOSBlocksProtocol>
 
-
 /**
  * Updates the user location with status change updates, location update and failure notification.
  *
