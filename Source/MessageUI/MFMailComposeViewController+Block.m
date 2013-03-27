@@ -39,7 +39,9 @@ static ComposeFinishedBlock _composeFinishedBlock;
     
     mailComposeViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    _composeCreatedBlock(mailComposeViewController);
+    if (_composeCreatedBlock) {
+        _composeCreatedBlock(mailComposeViewController);
+    }
 }
 
 + (void)mailWithSubject:(NSString *)subject
@@ -61,7 +63,9 @@ static ComposeFinishedBlock _composeFinishedBlock;
 
 + (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-	_composeFinishedBlock(controller, error);
+    if (_composeFinishedBlock) {
+        _composeFinishedBlock(controller, error);
+    }
 }
 
 @end

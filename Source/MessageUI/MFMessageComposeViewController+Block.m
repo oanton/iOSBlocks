@@ -28,7 +28,9 @@ static ComposeFinishedBlock _composeFinishedBlock;
     
     messageComposerViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    _composeCreatedBlock(messageComposerViewController);
+    if (_composeCreatedBlock) {
+        _composeCreatedBlock(messageComposerViewController);
+    }
 }
 
 
@@ -36,7 +38,9 @@ static ComposeFinishedBlock _composeFinishedBlock;
 
 + (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
-    _composeFinishedBlock(controller, nil);
+    if (_composeFinishedBlock) {
+        _composeFinishedBlock(controller, nil);
+    }
 }
 
 @end

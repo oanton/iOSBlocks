@@ -43,13 +43,18 @@ static UIPopoverController *_sharedPopover;
 
 + (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
 {
-    _shouldDismissBlock();
+    if (_shouldDismissBlock) {
+        _shouldDismissBlock();
+    }
+    
     return YES;
 }
 
 + (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    _cancelBlock();
+    if (_cancelBlock) {
+        _cancelBlock();
+    }
 }
 
 @end

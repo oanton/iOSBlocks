@@ -150,21 +150,29 @@ static UIView *_inView;
 	UIImage *editedImage = (UIImage *)[info valueForKey:UIImagePickerControllerEditedImage];
     if (!editedImage) editedImage = (UIImage *)[info valueForKey:UIImagePickerControllerOriginalImage];
     
-    _photoPickedBlock(editedImage);
 	[picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    if (_photoPickedBlock) {
+        _photoPickedBlock(editedImage);
+    }
 }
 
 
 + (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [_presentVC dismissViewControllerAnimated:YES completion:NULL];
-    _cancelBlock();
+    
+    if (_cancelBlock) {
+        _cancelBlock();
+    }
 }
 
 + (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex == [actionSheet cancelButtonIndex]) {
-		_cancelBlock();
+        if (_cancelBlock) {
+            _cancelBlock();
+        }
 	}
     else
     {
@@ -205,7 +213,9 @@ static UIView *_inView;
         }
         else
         {
-            _dismissBlock(buttonIndex,[actionSheet buttonTitleAtIndex:buttonIndex]);
+            if (_dismissBlock) {
+                _dismissBlock(buttonIndex,[actionSheet buttonTitleAtIndex:buttonIndex]);
+            }
         }
     }
 }

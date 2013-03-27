@@ -56,12 +56,13 @@ static UIViewController *_viewController;
 {
     _completionBlock  = [completion copy];
     _viewController = viewController;
+    
     self.delegate = delegate;
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if ([viewController isEqual:_viewController]) {
+    if ([viewController isEqual:_viewController] && _completionBlock) {
         _completionBlock();
     }
 }

@@ -35,23 +35,33 @@ static FailureBlock _failureBlock;
 + (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
-    _successBlock(HTTPResponse);
+    
+    if (_successBlock) {
+        _successBlock(HTTPResponse);
+    }
 }
 
 + (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    _dataBlock(data);
+    if (_dataBlock) {
+        _dataBlock(data);
+    }
 }
 
 + (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
     NSInteger progress = (totalBytesWritten*100)/totalBytesExpectedToWrite;
-    _progressBlock(progress);
+    
+    if (_progressBlock) {
+        _progressBlock(progress);
+    }
 }
 
 + (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    _failureBlock(error);
+    if (_failureBlock) {
+        _failureBlock(error);
+    }
 }
 
 @end
