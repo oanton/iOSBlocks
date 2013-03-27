@@ -79,8 +79,9 @@ This are some category classes of my own to allow easy implementation of the bas
 ```
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
+            didChangeAuthorizationStatus:(StatusBlock)status
                       didUpdateLocations:(LocationBlock)located
-                        didFailWithError:(FailureBlock)fail;
+                        didFailWithError:(FailureBlock)failed;
 ```
 
 And more to come. Enjoy!
