@@ -23,6 +23,7 @@ static UIView *_inView;
 + (void)actionSheetWithTitle:(NSString *)title
                        style:(UIActionSheetStyle)sheetStyle
            cancelButtonTitle:(NSString *)cancelButtonTitle
+      destructiveButtonTitle:(NSString *)destructiveButtonTitle
                 buttonTitles:(NSArray *)buttonTitles
               disabledTitles:(NSArray *)disabledTitles
                   showInView:(UIView *)view
@@ -36,7 +37,7 @@ static UIView *_inView;
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title 
                                                              delegate:[self class] 
                                                     cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
+                                               destructiveButtonTitle:destructiveButtonTitle
                                                     otherButtonTitles:nil];
     
     actionSheet.actionSheetStyle = sheetStyle;
@@ -46,6 +47,15 @@ static UIView *_inView;
         [actionSheet addButtonWithTitle:title];
     }
     
+    if (cancelButtonTitle) {
+        [actionSheet addButtonWithTitle:cancelButtonTitle];
+        actionSheet.cancelButtonIndex = buttonTitles.count;
+        
+        if (destructiveButtonTitle) {
+            actionSheet.cancelButtonIndex ++;
+        }
+    }
+
     for (UIButton *button in actionSheet.subviews) {
         if ([button isKindOfClass:[UIButton class]]) {
             for (NSString *disableTitle in disabledTitles) {
@@ -54,13 +64,6 @@ static UIView *_inView;
                 }
             }
         }
-    }
-    
-    [actionSheet addButtonWithTitle:cancelButtonTitle];
-    actionSheet.cancelButtonIndex = buttonTitles.count-1;
-    
-    if (cancelButtonTitle) {
-        actionSheet.cancelButtonIndex ++;
     }
     
     if ([_inView isKindOfClass:[UIView class]]) {
@@ -77,6 +80,8 @@ static UIView *_inView;
 }
 
 + (void)actionSheetWithTitle:(NSString *)title
+           cancelButtonTitle:(NSString *)cancelButtonTitle
+      destructiveButtonTitle:(NSString *)destructiveButtonTitle
                 buttonTitles:(NSArray *)buttonTitles
                   showInView:(UIView *)view
                    onDismiss:(DismissBlock)dismissed
@@ -84,12 +89,29 @@ static UIView *_inView;
 {
     [UIActionSheet actionSheetWithTitle:title
                                   style:UIActionSheetStyleAutomatic
-                      cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                      cancelButtonTitle:cancelButtonTitle
+                 destructiveButtonTitle:destructiveButtonTitle
                            buttonTitles:buttonTitles
                          disabledTitles:nil
                              showInView:view
                               onDismiss:dismissed
                                onCancel:cancelled];
+}
+
++ (void)actionSheetWithTitle:(NSString *)title
+                buttonTitles:(NSArray *)buttonTitles
+                  showInView:(UIView *)view
+                   onDismiss:(DismissBlock)dismissed
+{
+    [UIActionSheet actionSheetWithTitle:title
+                                  style:UIActionSheetStyleAutomatic
+                      cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                 destructiveButtonTitle:nil
+                           buttonTitles:buttonTitles
+                         disabledTitles:nil
+                             showInView:view
+                              onDismiss:dismissed
+                               onCancel:NULL];
 }
 
 + (void)photoPickerWithTitle:(NSString *)title
@@ -115,12 +137,12 @@ static UIView *_inView;
     actionSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-		[actionSheet addButtonWithTitle:NSLocalizedString(@"Camera", @"")];
+		[actionSheet addButtonWithTitle:NSLocalizedString(@"Camera", @"Camera")];
 		cancelButtonIndex ++;
 	}
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-		[actionSheet addButtonWithTitle:NSLocalizedString(@"Photo library", @"")];
+		[actionSheet addButtonWithTitle:NSLocalizedString(@"Photo library", @"Photo library")];
 		cancelButtonIndex ++;
 	}
 	

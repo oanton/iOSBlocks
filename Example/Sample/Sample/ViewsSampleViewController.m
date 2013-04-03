@@ -44,12 +44,17 @@
 
 - (IBAction)triggerNewEmail:(id)sender {
     
-    [MFMailComposeViewController mailWithSubject:@"Remembering Steve"
-                                         message:@"Over a million people from all over the world have shared their memories, thoughts, and feelings about Steve. One thing they all have in common — from personal friends to colleagues to owners of Apple products — is how they’ve been touched by his passion and creativity. You can view some of these messages below."
-                                      recipients:@[@"rememberingsteve@apple.com"]
-                                  andAttachments:@[@{kMFAttachmentData: [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default" ofType:@"png"]],
-                           kMFAttachmentMimeType: @"image/png",
-                           kMFAttachmentFileName: @"Attachment"}]
+    NSString *subjet = @"Remembering Steve";
+    NSString *message = @"Over a million people from all over the world have shared their memories, thoughts, and feelings about Steve. One thing they all have in common — from personal friends to colleagues to owners of Apple products — is how they’ve been touched by his passion and creativity. You can view some of these messages below.";
+    
+    NSArray *recipients = @[@"rememberingsteve@apple.com"];
+    
+    NSArray *attachment = @[@{kMFAttachmentData: [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Default" ofType:@"png"]], kMFAttachmentMimeType: @"image/png", kMFAttachmentFileName: @"Attachment"}];
+    
+    [MFMailComposeViewController mailWithSubject:subjet
+                                         message:message
+                                      recipients:recipients
+                                  andAttachments:attachment
                                       onCreation:^(UIViewController *controller){
                                           [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
                                       }
@@ -62,8 +67,12 @@
 
 - (IBAction)triggerNewMessage:(id)sender {
     
-    [MFMessageComposeViewController messageWithBody:@"We Miss You, Steve."
-                                         recipients:@[@"steve@apple.com"]
+    NSString *message = @"We Miss You, Steve.";
+    
+    NSArray *recipients = @[@"steve@apple.com"];
+    
+    [MFMessageComposeViewController messageWithBody:message
+                                         recipients:recipients
                                          onCreation:^(UIViewController *controller){
                                              [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
                                          }
@@ -76,21 +85,37 @@
 
 - (IBAction)triggerNewSheet:(id)sender {
     
-    UIButton *button = (UIButton *)sender;
+    UIView *view = (UIButton *)sender;
     
-    [UIActionSheet actionSheetWithTitle:@"ActionSheet"
+    NSString *title = @"ActionSheet";
+    NSString *cancelTitle = @"Cancel";
+    NSString *destructiveTitle = @"Delete";
+    
+    NSArray *buttonTitles = @[@"Button 1",@"Button 2",@"Button 3"];
+    NSArray *disabledTitles = @[@"Button 2"];
+
+    
+    [UIActionSheet actionSheetWithTitle:title
                                   style:UIActionSheetStyleAutomatic
-                      cancelButtonTitle:@"Cancel"
-                           buttonTitles:[NSArray arrayWithObjects:@"Button 1",@"Button 2",@"Button 3",@"Button 4", nil]
-                         disabledTitles:[NSArray arrayWithObjects:@"Button 2", nil]
-                             showInView:button
+                      cancelButtonTitle:cancelTitle
+                 destructiveButtonTitle:destructiveTitle
+                           buttonTitles:buttonTitles
+                         disabledTitles:disabledTitles
+                             showInView:view
                               onDismiss:^(int buttonIndex, NSString *buttonTitle){
                                   NSLog(@"Pressed button : %@",buttonTitle);
                               }
                                onCancel:^(void){
                                    NSLog(@"UIActionSheet Cancelled");
-                               }
-     ];
+                               }];
+
+    
+//    [UIActionSheet actionSheetWithTitle:title
+//                           buttonTitles:buttonTitles
+//                             showInView:view
+//                              onDismiss:^(int buttonIndex, NSString *buttonTitle){
+//                                  NSLog(@"Pressed button : %@",buttonTitle);
+//                              }];
 }
 
 - (IBAction)triggerNewPicker:(id)sender {
