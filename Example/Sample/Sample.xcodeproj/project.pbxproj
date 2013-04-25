@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F2299D9170D129A001C8A97 /* UIPickerView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2299D8170D129A001C8A97 /* UIPickerView+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4F667B9816C9D28E00FE8B8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667B9716C9D28E00FE8B8D /* UIKit.framework */; };
 		4F667B9A16C9D28E00FE8B8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667B9916C9D28E00FE8B8D /* Foundation.framework */; };
 		4F667B9C16C9D28E00FE8B8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667B9B16C9D28E00FE8B8D /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F2299D7170D129A001C8A97 /* UIPickerView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPickerView+Block.h"; sourceTree = "<group>"; };
+		4F2299D8170D129A001C8A97 /* UIPickerView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPickerView+Block.m"; sourceTree = "<group>"; };
 		4F667B9416C9D28E00FE8B8D /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F667B9716C9D28E00FE8B8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4F667B9916C9D28E00FE8B8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -218,6 +221,8 @@
 				4F7AF87616EAA195005C3769 /* UIActionSheet+Block.m */,
 				4F7AF87716EAA195005C3769 /* UIAlertView+Block.h */,
 				4F7AF87816EAA195005C3769 /* UIAlertView+Block.m */,
+				4F2299D7170D129A001C8A97 /* UIPickerView+Block.h */,
+				4F2299D8170D129A001C8A97 /* UIPickerView+Block.m */,
 				4F7AF87916EAA195005C3769 /* UIPopoverController+Block.h */,
 				4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */,
 				4F7FD52E16FD09D500FECB7F /* UINavigationController+Block.h */,
@@ -306,6 +311,7 @@
 				4F7AF88416EAA286005C3769 /* NSURLConnection+Block.m in Sources */,
 				4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */,
 				4F7FD53016FD09D500FECB7F /* UINavigationController+Block.m in Sources */,
+				4F2299D9170D129A001C8A97 /* UIPickerView+Block.m in Sources */,
 				4F7FD53316FD0A1000FECB7F /* NavigationSampleViewController.m in Sources */,
 				4F7FD57D16FD400500FECB7F /* LocationSampleViewController.m in Sources */,
 			);

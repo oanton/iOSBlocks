@@ -13,12 +13,12 @@ __unused static NSString *kMFAttachmentData = @"MFMailAttachmentData";
 __unused static NSString *kMFAttachmentMimeType = @"MFMailAttachmentMimeType";
 __unused static NSString *kMFAttachmentFileName = @"MFMailAttachmentFileName";
 
-/**
- * @brief MessageUI MailComposeViewController Delegate block methods.
+/*
+ * MessageUI MailComposeViewController Delegate block methods.
  */
 @interface MFMailComposeViewController (Block) <MFMailComposeViewControllerDelegate, iOSBlocksProtocol>
 
-/**
+/*
  * Prepares a MailComposeViewController to be presented with subject, message, recipients and attachment files, and with update blocks to notify when the user finishes by either sending or cancelling the mail.
  * If this is used on iPad, the MailComposeViewController will be presented modaly with presentation styled on UIModalPresentationFormSheet.
  *
@@ -37,7 +37,7 @@ __unused static NSString *kMFAttachmentFileName = @"MFMailAttachmentFileName";
              onCreation:(ComposeCreatedBlock)creation
                onFinish:(ComposeFinishedBlock)finished;
 
-/**
+/*
  * Prepares a MailComposeViewController to be presented with subject, message and recipients, and with update blocks to notify when the user finishes by either sending or cancelling the mail.
  * If this is used on iPad, the MailComposeViewController will be presented modaly with presentation styled on UIModalPresentationFormSheet.
  *

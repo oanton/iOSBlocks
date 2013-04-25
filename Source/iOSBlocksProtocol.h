@@ -9,8 +9,8 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- * @brief Generic block constants for free usage over different classes.
+/*
+ * Generic block constants for free usage over different classes.
  */
 @protocol iOSBlocksProtocol <NSObject>
 
@@ -27,6 +27,8 @@ typedef void (^ProgressBlock)(NSInteger connectionProgress);
 typedef void (^DataBlock)(NSData *data);
 typedef void (^SuccessBlock)(NSHTTPURLResponse *HTTPResponse);
 typedef void (^FailureBlock)(NSError *error);
+
+typedef void (^RowPickedBlock)(NSString *title);
 
 typedef void (^ListBlock)(NSArray *list);
 

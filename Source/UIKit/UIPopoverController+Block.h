@@ -9,19 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "iOSBlocksProtocol.h"
 
-/**
- * @brief UIPopoverController Delegate block methods.
+/*
+ * UIPopoverController Delegate block methods.
  */
 @interface UIPopoverController (Block) <UIPopoverControllerDelegate, iOSBlocksProtocol>
 
-/**
+/*
  * A shared popoverController object across all the application.
  *
  * @returns A shared object for the popoverController.
  */
 + (UIPopoverController *)sharedPopover;
 
-/**
+/*
  * Displays the popover and anchors it to the specified location in the view.
  *
  * @param controller The view controller for managing the popover’s content. This parameter must not be nil.

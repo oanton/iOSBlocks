@@ -10,12 +10,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import "iOSBlocksProtocol.h"
 
-/**
- * @brief CoreLocation Manager Delegate block methods.
+/*
+ * CoreLocation Manager Delegate block methods.
  */
 @interface CLLocationManager (Block) <CLLocationManagerDelegate, iOSBlocksProtocol>
 
-/**
+/*
  * Updates the user location with status change updates, location update and failure notification.
  *
  * @param filter The minimum distance (measured in meters) a device must move horizontally before an update event is generated.
@@ -30,7 +30,7 @@
                       didUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed;
 
-/**
+/*
  * Updates the user location with location update and failure notification.
  *
  * @param filter The minimum distance (measured in meters) a device must move horizontally before an update event is generated.
@@ -44,7 +44,7 @@
                       didUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed;
 
-/**
+/*
  * Shorter method for updating the user location, similar to updateLocationWithDistanceFilter:andDesiredAccuracy:didUpdateLocations:didFailWithError: with a standard location filter and accuracy setup.
  *
  * @param located A block object to be executed when new location data is available. Returns an array of CLLocation objects containing the location data. This array always contains at least one object representing the current location.

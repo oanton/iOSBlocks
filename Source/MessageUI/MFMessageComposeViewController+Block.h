@@ -9,13 +9,15 @@
 #import <MessageUI/MessageUI.h>
 #import "iOSBlocksProtocol.h"
 
-/**
- * @brief MessageUI MessageComposeViewController Delegate block methods.
+#pragma GCC diagnostic ignored "-wall"
+
+/*
+ * MessageUI MessageComposeViewController Delegate block methods.
  * @warning Unfortunately , it doesn't work on the simulator.
  */
 @interface MFMessageComposeViewController (Block) <MFMessageComposeViewControllerDelegate, iOSBlocksProtocol>
 
-/**
+/*
  * Prepares a MessageComposeViewController to be presented with a body message and recipients, and with update blocks to notify when the user finishes by either sending or cancelling the message
  * If this is used on iPad, the MessageComposeViewController will be presented modaly with presentation styled on UIModalPresentationFormSheet.
  *

@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "iOSBlocksProtocol.h"
 
-/**
- * @brief UIAlertView Delegate block methods.
+/*
+ * UIAlertView Delegate block methods.
  */
 @interface UIAlertView (Block) <UIAlertViewDelegate, iOSBlocksProtocol>
 
-/**
+/*
  * Displays an alert view filled with titles and buttons, and with update blocks to notify when the user dismisses or cancels the alert.
  *
  * @param title The string that appears in the receiver’s title bar.
@@ -31,7 +31,7 @@
                  onDismiss:(DismissBlock)dismissed
                   onCancel:(VoidBlock)cancelled;
 
-/**
+/*
  * Shorter method to Display an alert view with titles, description message and cancel button title, but with no blocks.
  *
  * @param title The string that appears in the receiver’s title bar.
@@ -42,7 +42,7 @@
                    message:(NSString *)message
          cancelButtonTitle:(NSString *)cancelButtonTitle;
 
-/**
+/*
  * Shorter method to Display an alert view with titles and description message, but with no blocks.
  *
  * @param title The string that appears in the receiver’s title bar.

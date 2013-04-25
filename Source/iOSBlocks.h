@@ -9,6 +9,7 @@
 
 #import "UIActionSheet+Block.h"
 #import "UIAlertView+Block.h"
+#import "UIPickerView+Block.h"
 #import "UIPopoverController+Block.h"
 
 #import "MFMailComposeViewController+Block.h"

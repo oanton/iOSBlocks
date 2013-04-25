@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "iOSBlocksProtocol.h"
 
-/**
- * @brief NSURLConnection Delegate block methods.
+/*
+ * NSURLConnection Delegate block methods.
  * @warning This implementation may be deprecated very soon as Apple did depcrecated NSURLConnectionDelegate methods since iOS4.3 but still works under the lastest iOS versions.
  */
 @interface NSURLConnection (Block) <NSURLConnectionDelegate, iOSBlocksProtocol>
 
-/**
+/*
  * Loads the data for a URL request and executes a handler block on an operation queue when the request completes or fails.
  *
  * @param request The URL request to load. The request object is deep-copied as part of the initialization process.

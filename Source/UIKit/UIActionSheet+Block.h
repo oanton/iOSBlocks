@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "iOSBlocksProtocol.h"
 
-/**
- * @brief UIActionSheet Delegate block methods.
+/*
+ * UIActionSheet Delegate block methods.
  */
 @interface UIActionSheet (Block) <UIActionSheetDelegate, UIImagePickerControllerDelegate, iOSBlocksProtocol>
 
-/**
+/*
  * Displays an action sheet with all the possible options, like title, normal & destructive buttons, style, and with update blocks to notify when the user dismisses or cancels the action sheet.
  *
  * @param title A string to display in the title area of the action sheet. Pass nil if you do not want to display any text in the title area.
@@ -37,7 +37,7 @@
                    onDismiss:(DismissBlock)dismissed
                     onCancel:(VoidBlock)cancelled;
 
-/**
+/*
  * Displays a standard action sheet filled with title and buttons, and with update blocks to notify when the user dismisses or cancels the action sheet.
  *
  * @param title A string to display in the title area of the action sheet. Pass nil if you do not want to display any text in the title area.
@@ -55,7 +55,7 @@
                    onDismiss:(DismissBlock)dismissed
                     onCancel:(VoidBlock)cancelled;
 
-/**
+/*
  * Displays an action sheet with fewer options, like title and buttons, and with only one update block to notify when the user dismisses the action sheet.
  *
  * @param title A string to display in the title area of the action sheet. Pass nil if you do not want to display any text in the title area.
@@ -68,7 +68,7 @@
                   showInView:(UIView *)view
                    onDismiss:(DismissBlock)dismissed;
 
-/**
+/*
  * Displays a photo picker action sheet, with update blocks to notify when the user chooses a pitcure or cancels the action sheet.
  *
  * @param title A string to display in the title area of the action sheet. Pass nil if you do not want to display any text in the title area.
