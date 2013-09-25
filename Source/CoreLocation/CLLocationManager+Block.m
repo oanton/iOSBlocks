@@ -12,13 +12,13 @@ static ListBlock _locationBlock;
 static FailureBlock _failureBlock;
 static StatusBlock _statusBlock;
 
+static CLLocationManager *_sharedManager = nil;
+
 @implementation CLLocationManager (Block)
 
 + (CLLocationManager *)sharedManager
 {
-    static CLLocationManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
-    
     dispatch_once(&onceToken, ^{
         _sharedManager = [[CLLocationManager alloc] init];
     });
@@ -26,7 +26,7 @@ static StatusBlock _statusBlock;
     return _sharedManager;
 }
 
-+ (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
+- (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
             didChangeAuthorizationStatus:(StatusBlock)changedStatus
                       didUpdateLocations:(ListBlock)located
@@ -36,36 +36,35 @@ static StatusBlock _statusBlock;
     _locationBlock = [located copy];
     _failureBlock = [failed copy];
     
-    [[CLLocationManager sharedManager] setDelegate:[self class]];
+    [[CLLocationManager sharedManager] setDelegate:self];
     [[CLLocationManager sharedManager] setDistanceFilter:filter];
     [[CLLocationManager sharedManager] setDesiredAccuracy:accuracy];
-    
     [[CLLocationManager sharedManager] startUpdatingLocation];
 }
 
-+ (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
+- (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
                       didUpdateLocations:(ListBlock)located
                         didFailWithError:(FailureBlock)failed
 {
-    [CLLocationManager updateLocationWithDistanceFilter:filter
+    [[CLLocationManager sharedManager] updateLocationWithDistanceFilter:filter
                                      andDesiredAccuracy:accuracy
                            didChangeAuthorizationStatus:NULL
                                      didUpdateLocations:located
                                        didFailWithError:failed];
 }
 
-+ (void)locationManagerDidUpdateLocations:(ListBlock)located
+- (void)locationManagerDidUpdateLocations:(ListBlock)located
                          didFailWithError:(FailureBlock)failed
 {
-    [CLLocationManager updateLocationWithDistanceFilter:1.0
+    [[CLLocationManager sharedManager] updateLocationWithDistanceFilter:1.0
                                      andDesiredAccuracy:kCLLocationAccuracyBest
                            didChangeAuthorizationStatus:NULL
                                      didUpdateLocations:located
                                        didFailWithError:failed];
 }
 
-+ (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     [[CLLocationManager sharedManager] stopUpdatingLocation];
     
@@ -74,7 +73,7 @@ static StatusBlock _statusBlock;
     }
 }
 
-+ (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     [[CLLocationManager sharedManager] stopUpdatingLocation];
     
@@ -83,7 +82,7 @@ static StatusBlock _statusBlock;
     }
 }
 
-+ (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     if (_statusBlock) {
         _statusBlock(status);

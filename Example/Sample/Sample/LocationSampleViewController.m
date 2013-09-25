@@ -29,7 +29,7 @@
         _mapview = [[MKMapView alloc] initWithFrame:frame];
         [self.view addSubview:_mapview];
         
-        UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(locateUser:)];
+        UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Locate" style:UIBarButtonItemStyleBordered target:self action:@selector(locateUser:)];
         [self.navigationItem setLeftBarButtonItem:leftBarButton];
     }
     return self;
@@ -37,22 +37,17 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-
 - (void)locateUser:(id)sender
 {
-    [CLLocationManager updateLocationWithDistanceFilter:1.0
-                                     andDesiredAccuracy:kCLLocationAccuracyBest
-                                     didUpdateLocations:^(NSArray *locations){
-                                         NSLog(@"locations : %@",locations);
-                                     }
-                                       didFailWithError:^(NSError *error){
-                                           NSLog(@"error : %@",error.localizedDescription);
-                                       }];
+    [[CLLocationManager sharedManager] updateLocationWithDistanceFilter:1.0
+                                                     andDesiredAccuracy:kCLLocationAccuracyBest
+                                                     didUpdateLocations:^(NSArray *locations){
+                                                         
+                                                         NSLog(@"locations : %@",locations);
+                                                     }
+                                                       didFailWithError:^(NSError *error){
+                                                           NSLog(@"error : %@",error.localizedDescription);
+                                                       }];
 }
 
 

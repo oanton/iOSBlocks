@@ -37,7 +37,7 @@
 {
     [super viewDidLoad];
 
-    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         popoverButton.hidden = YES;
     }
 }
@@ -67,7 +67,7 @@
 
 - (IBAction)triggerNewMessage:(id)sender {
     
-    NSString *message = @"We Miss You, Steve.";
+    NSString *message = @"We miss you Steve.";
     
     NSArray *recipients = @[@"steve@apple.com"];
     
