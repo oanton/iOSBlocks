@@ -5,8 +5,14 @@ Delegates are a real pain in the ars. Objective-C blocks rule!
 This are some category classes of my own to allow easy implementation of the basic iOS frameworks & APIs without the need of using delegation.
 
 ## Installation
+Pod installation available:
 ```
 pod 'iOSBlocks', '~> 1.0'
+```
+
+Then import the library wherever you need it, or in you application's Prefix.pch file.
+```
+#import "iOSBlocks.h"
 ```
 
 ## Some Examples
