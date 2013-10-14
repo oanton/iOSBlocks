@@ -7,8 +7,9 @@ This are some category classes of my own to allow easy implementation of the bas
 ## Installation
 Available in [Cocoa Pods](http://cocoapods.org/?q=iOSBlocks)
 ```
-pod 'iOSBlocks', '~> 1.0'
+pod 'iOSBlocks', '~> 1.0', :inhibit_warnings => true
 ```
+(You should add the 'inhibit_warnings' flag to avoid some existing warnings that must be fixed soon)
 
 Then import the library wherever you need it, or in you application's Prefix.pch file.
 ```
