@@ -7,7 +7,7 @@ This are some category classes of my own to allow easy implementation of the bas
 ## Installation
 Available in [Cocoa Pods](http://cocoapods.org/?q=iOSBlocks)
 ```
-pod 'iOSBlocks', '~> 1.0', :inhibit_warnings => true
+pod 'iOSBlocks', '~> 1.0.1', :inhibit_warnings => true
 ```
 (You should add the 'inhibit_warnings' flag to avoid some existing warnings that must be fixed soon)
 
