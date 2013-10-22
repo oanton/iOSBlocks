@@ -4,7 +4,20 @@ iOS Blocks
 Delegates are a real pain in the ars. Objective-C blocks rule!
 This are some category classes of my own to allow easy implementation of the basic iOS frameworks & APIs without the need of using delegation.
 
-## UINavigationController
+## Installation
+Available in [Cocoa Pods](http://cocoapods.org/?q=iOSBlocks)
+```
+pod 'iOSBlocks', '~> 1.0', :inhibit_warnings => true
+```
+(You should add the 'inhibit_warnings' flag to avoid some existing warnings that must be fixed soon)
+
+Then import the library wherever you need it, or in you application's Prefix.pch file.
+```
+#import "iOSBlocks.h"
+```
+
+## Some Examples
+### UINavigationController
 ```
 - (void)pushViewController:(UIViewController *)viewController
                   animated:(BOOL)animated
@@ -18,7 +31,7 @@ This are some category classes of my own to allow easy implementation of the bas
                      onCompletion:(VoidBlock)completion;
 ```
 
-## UIPopoverController
+### UIPopoverController
 ```
 + (UIPopoverController *)popOverWithContentViewController:(UIViewController *)controller
                                                showInView:(UIView *)view
@@ -26,7 +39,7 @@ This are some category classes of my own to allow easy implementation of the bas
                                                  onCancel:(CancelBlock)cancelled;
 ```
 
-## UIAlertView
+### UIAlertView
 ```
 + (UIAlertView *)alertViewWithTitle:(NSString *)title
                             message:(NSString *)message
@@ -36,7 +49,7 @@ This are some category classes of my own to allow easy implementation of the bas
                            onCancel:(CancelBlock)cancelled;
 ```
 
-## UIActionSheet
+### UIActionSheet
 ```
 + (UIActionSheet *)actionSheetWithTitle:(NSString *)title
                                   style:(UIActionSheetStyle)sheetStyle
@@ -48,7 +61,7 @@ This are some category classes of my own to allow easy implementation of the bas
                                onCancel:(CancelBlock)cancelled;
 ```
 
-## MFMailComposeViewController
+### MFMailComposeViewController
 ```
 + (void)mailWithSubject:(NSString *)subject
                 message:(NSString *)message
@@ -58,7 +71,7 @@ This are some category classes of my own to allow easy implementation of the bas
                onFinish:(ComposeFinishedBlock)finished;
 ```
 
-## MFMessageComposeViewController
+### MFMessageComposeViewController
 ```
 + (void)messageWithBody:(NSString *)body
              recipients:(NSArray *)recipients
@@ -66,7 +79,7 @@ This are some category classes of my own to allow easy implementation of the bas
                onFinish:(ComposeFinishedBlock)finished;
 ```
 
-## NSURLConnection
+### NSURLConnection
 ```
 + (NSURLConnection *)sendAsynchronousRequest:(NSURLRequest *)request
                            didUpdateProgress:(ProgressBlock)progress
@@ -75,7 +88,7 @@ This are some category classes of my own to allow easy implementation of the bas
                             didFailWithError:(FailureBlock)fail;
 ```
 
-## CLLocation
+### CLLocation
 ```
 + (void)updateLocationWithDistanceFilter:(CLLocationDistance)filter
                       andDesiredAccuracy:(CLLocationAccuracy)accuracy
@@ -85,6 +98,10 @@ This are some category classes of my own to allow easy implementation of the bas
 ```
 
 And more to come. Enjoy!
+
+## Sample project
+Take a look into the sample project. Everything is there.<br>
+Enjoy and collaborate if you feel this library could be improved.
 
 
 ## License
