@@ -24,7 +24,7 @@
  * @param dismissed A block object to be executed after the alert view is dismissed from the screen. Returns the pressed button's index and title.
  * @param cancelled A block object to be executed when the alert view is cancelled by the user.
  */
-+ (void)alertViewWithTitle:(NSString *)title
++ (UIAlertView *)alertViewWithTitle:(NSString *)title
                    message:(NSString *)message
          cancelButtonTitle:(NSString *)cancelButtonTitle
          otherButtonTitles:(NSArray *)otherButtonTitles
@@ -38,7 +38,7 @@
  * @param message Descriptive text that provides more details than the title.
  * @param cancelButtonTitle The title of the cancel button or nil if there is no cancel button.
  */
-+ (void)alertViewWithTitle:(NSString *)title
++ (UIAlertView *)alertViewWithTitle:(NSString *)title
                    message:(NSString *)message
          cancelButtonTitle:(NSString *)cancelButtonTitle;
 
@@ -48,7 +48,7 @@
  * @param title The string that appears in the receiver’s title bar.
  * @param message Descriptive text that provides more details than the title.
  */
-+ (void)alertViewWithTitle:(NSString *)title
++ (UIAlertView *)alertViewWithTitle:(NSString *)title
                    message:(NSString *)message;
 
 @end
