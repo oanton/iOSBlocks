@@ -13,7 +13,7 @@ static VoidBlock _cancelBlock;
 
 @implementation UIAlertView (Block)
 
-+ (void)alertViewWithTitle:(NSString *)title
++ (UIAlertView *)alertViewWithTitle:(NSString *)title
                    message:(NSString *)message
          cancelButtonTitle:(NSString *)cancelButtonTitle
          otherButtonTitles:(NSArray *)otherButtons
@@ -34,17 +34,19 @@ static VoidBlock _cancelBlock;
     }
     
     [alert show];
+
+    return alert;
 }
 
-+ (void)alertViewWithTitle:(NSString *)title
++ (UIAlertView *)alertViewWithTitle:(NSString *)title
                             message:(NSString *)message
 {
-    [UIAlertView alertViewWithTitle:title
+    return [UIAlertView alertViewWithTitle:title
                             message:message
                   cancelButtonTitle:NSLocalizedString(@"OK", @"OK")];
 }
 
-+ (void)alertViewWithTitle:(NSString *)title
++ (UIAlertView *)alertViewWithTitle:(NSString *)title
                             message:(NSString *)message
                   cancelButtonTitle:(NSString *)cancelButtonTitle
 {
@@ -54,6 +56,8 @@ static VoidBlock _cancelBlock;
                                           cancelButtonTitle:cancelButtonTitle
                                           otherButtonTitles:nil];
     [alert show];
+
+    return alert;
 }
 
 
