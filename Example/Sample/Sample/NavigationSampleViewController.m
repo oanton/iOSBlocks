@@ -31,9 +31,9 @@
 {
     [super viewDidLoad];
     
-    int stackCount = self.navigationController.viewControllers.count;
+    NSUInteger stackCount = self.navigationController.viewControllers.count;
     if (stackCount > 1) {
-        self.title = [NSString stringWithFormat:@"%d",stackCount];
+        self.title = [NSString stringWithFormat:@"%lu",(unsigned long)stackCount];
     }
 }
 
@@ -114,7 +114,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int stackCount = self.navigationController.viewControllers.count;
+    NSUInteger stackCount = self.navigationController.viewControllers.count;
     
     if (indexPath.section == 0) {
         

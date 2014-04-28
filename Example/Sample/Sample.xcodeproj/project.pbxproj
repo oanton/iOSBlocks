@@ -107,6 +107,7 @@
 		4F667B8B16C9D28E00FE8B8D = {
 			isa = PBXGroup;
 			children = (
+				4F667BBA16C9D29400FE8B8D /* iOSBlocks */,
 				4F667B9D16C9D28E00FE8B8D /* Sample */,
 				4F667B9616C9D28E00FE8B8D /* Frameworks */,
 				4F667B9516C9D28E00FE8B8D /* Products */,
@@ -147,7 +148,6 @@
 				4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */,
 				4F7FD57B16FD400500FECB7F /* LocationSampleViewController.h */,
 				4F7FD57C16FD400500FECB7F /* LocationSampleViewController.m */,
-				4F667BBA16C9D29400FE8B8D /* Source */,
 				4F667B9E16C9D28E00FE8B8D /* Supporting Files */,
 			);
 			path = Sample;
@@ -169,7 +169,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4F667BBA16C9D29400FE8B8D /* Source */ = {
+		4F667BBA16C9D29400FE8B8D /* iOSBlocks */ = {
 			isa = PBXGroup;
 			children = (
 				4F7AF86816EAA189005C3769 /* iOSBlocks.h */,
@@ -179,7 +179,8 @@
 				4F7AF86F16EAA195005C3769 /* MessageUI */,
 				4F7AF87416EAA195005C3769 /* UIKit */,
 			);
-			name = Source;
+			name = iOSBlocks;
+			path = Sample;
 			sourceTree = "<group>";
 		};
 		4F7AF86916EAA195005C3769 /* CoreLocation */ = {
