@@ -30,9 +30,12 @@ static UIView *_inView;
                               onDismiss:(DismissBlock)dismissed
                                onCancel:(VoidBlock)cancelled
 {
-    _cancelBlock  = [cancelled copy];
-    _dismissBlock  = [dismissed copy];
-    _inView = view;
+    if (![self canShowInView:view]) {
+        return nil;
+    }
+    
+    _cancelBlock = [cancelled copy];
+    _dismissBlock = [dismissed copy];
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title
                                                              delegate:[self class]
@@ -66,17 +69,7 @@ static UIView *_inView;
         }
     }
     
-    if ([_inView isKindOfClass:[UIView class]]) {
-        [actionSheet showInView:_inView];
-    }
-    
-    if ([_inView isKindOfClass:[UITabBar class]]) {
-        [actionSheet showFromTabBar:(UITabBar *)_inView];
-    }
-    
-    if ([_inView isKindOfClass:[UIBarButtonItem class]]) {
-        [actionSheet showFromBarButtonItem:(UIBarButtonItem *)_inView animated:YES];
-    }
+    [actionSheet showUsingView:view];
     
     return actionSheet;
 }
@@ -123,6 +116,10 @@ static UIView *_inView;
                           onPhotoPicked:(PhotoPickedBlock)photoPicked
                                onCancel:(VoidBlock)cancelled
 {
+    if (![self canShowInView:view]) {
+        return nil;
+    }
+    
     _photoPickedBlock = [photoPicked copy];
     _cancelBlock = [cancelled copy];
     _presentVC = presentVC;
@@ -151,25 +148,13 @@ static UIView *_inView;
 	[actionSheet addButtonWithTitle:cancelButtonTitle];
 	cancelButtonIndex ++;
 	
-    actionSheet.tag = kPhotoActionSheetTag;
 	actionSheet.cancelButtonIndex = cancelButtonIndex;
-    
-    if ([_inView isKindOfClass:[UIView class]]) {
-        [actionSheet showInView:_inView];
-    }
-    else if([_inView isKindOfClass:[UITabBar class]]) {
-        [actionSheet showFromTabBar:(UITabBar *) _inView];
-    }
-    else if([_inView isKindOfClass:[UIToolbar class]]) {
-        [actionSheet showFromToolbar:(UIToolbar *) _inView];
-    }
-    else if ([view isKindOfClass:[UIBarButtonItem class]]) {
-        [actionSheet showFromBarButtonItem:(UIBarButtonItem *) _inView animated:YES];
-    }
+    actionSheet.tag = kPhotoActionSheetTag;
+
+    [actionSheet showUsingView:view];
     
     return actionSheet;
 }
-
 
 + (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -245,4 +230,29 @@ static UIView *_inView;
         }
     }
 }
+
++ (BOOL)canShowInView:(UIView *)view
+{
+    if (!view.window) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)showUsingView:(UIView *)view
+{
+    if ([view isKindOfClass:[UIView class]]) {
+        [self showInView:view];
+    }
+    else if ([view isKindOfClass:[UITabBar class]]) {
+        [self showFromTabBar:(UITabBar *)view];
+    }
+    else if ([view isKindOfClass:[UIToolbar class]]) {
+        [self showFromToolbar:(UIToolbar *)view];
+    }
+    else if ([view isKindOfClass:[UIBarButtonItem class]]) {
+        [self showFromBarButtonItem:(UIBarButtonItem *)view animated:YES];
+    }
+}
+
 @end
