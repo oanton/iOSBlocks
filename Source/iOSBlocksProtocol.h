@@ -7,8 +7,6 @@
 //  Licence: MIT-Licence
 //
 
-#import <Foundation/Foundation.h>
-
 /*
  * Generic block constants for free usage over different classes.
  */
