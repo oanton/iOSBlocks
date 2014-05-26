@@ -54,6 +54,8 @@
     [MFMailComposeViewController mailWithSubject:subjet
                                          message:message
                                       recipients:recipients
+                                   bccRecipients:nil
+                                    ccRecipients:nil
                                   andAttachments:attachment
                                       onCreation:^(UIViewController *controller){
                                           [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:controller animated:YES completion:nil];
