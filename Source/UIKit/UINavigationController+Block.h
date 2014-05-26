@@ -1,9 +1,10 @@
 //
 //  UINavigationController+Block.h
-//  Navigation
+//  iOS Blocks
 //
-//  Created by Ignacio on 3/22/13.
-//  Copyright (c) 2013 DZEN. All rights reserved.
+//  Created by Ignacio Romero Zurbuchen on 3/33/13.
+//  Copyright (c) 2011 DZN Labs.
+//  Licence: MIT-Licence
 //
 
 #import <UIKit/UIKit.h>

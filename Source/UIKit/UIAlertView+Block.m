@@ -1,9 +1,10 @@
 //
-//  UIAlertView+Block.h
+//  UIAlertView+Block.m
 //  iOS Blocks
 //
 //  Created by Ignacio Romero Zurbuchen on 12/11/12.
-//  Copyright (c) 2013 DZEN. All rights reserved.
+//  Copyright (c) 2011 DZN Labs.
+//  Licence: MIT-Licence
 //
 
 #import "UIAlertView+Block.h"

@@ -3,7 +3,8 @@
 //  iOS Blocks
 //
 //  Created by Ignacio Romero Zurbuchen on 12/19/12.
-//  Copyright (c) 2013 DZEN. All rights reserved.
+//  Copyright (c) 2011 DZN Labs.
+//  Licence: MIT-Licence
 //
 
 #import "UIPickerView+Block.h"

@@ -3,7 +3,8 @@
 //  iOS Blocks
 //
 //  Created by Ignacio Romero Zurbuchen on 1/11/13.
-//  Copyright (c) 2013 DZEN. All rights reserved.
+//  Copyright (c) 2011 DZN Labs.
+//  Licence: MIT-Licence
 //
 
 #import "NSURLConnection+Block.h"

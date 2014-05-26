@@ -3,7 +3,7 @@
 //  iOS Blocks
 //
 //  Created by Ignacio Romero Zurbuchen on 3/8/13.
-//  Copyright (c) 2011 DZen Interaktiv.
+//  Copyright (c) 2011 DZN Labs.
 //  Licence: MIT-Licence
 //
 
