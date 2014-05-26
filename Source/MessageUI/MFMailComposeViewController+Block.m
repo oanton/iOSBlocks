@@ -16,6 +16,24 @@ static ComposeFinishedBlock _composeFinishedBlock;
 + (void)mailWithSubject:(NSString *)subject
                 message:(NSString *)message
              recipients:(NSArray *)recipients
+             onCreation:(ComposeCreatedBlock)creation
+               onFinish:(ComposeFinishedBlock)finished
+{
+    [MFMailComposeViewController mailWithSubject:subject
+                                         message:message
+                                      recipients:recipients
+                                   bccRecipients:nil
+                                    ccRecipients:nil
+                                  andAttachments:nil
+                                      onCreation:creation
+                                        onFinish:finished];
+}
+
++ (void)mailWithSubject:(NSString *)subject
+                message:(NSString *)message
+             recipients:(NSArray *)recipients
+          bccRecipients:(NSArray *)bccRecipients
+           ccRecipients:(NSArray *)ccRecipients
          andAttachments:(NSArray *)attachments
              onCreation:(ComposeCreatedBlock)creation
                onFinish:(ComposeFinishedBlock)finished
@@ -28,6 +46,8 @@ static ComposeFinishedBlock _composeFinishedBlock;
     [mailComposeViewController setSubject:subject];
     [mailComposeViewController setMessageBody:message isHTML:YES];
     [mailComposeViewController setToRecipients:recipients];
+    [mailComposeViewController setBccRecipients:bccRecipients];
+    [mailComposeViewController setCcRecipients:ccRecipients];
     
     for (NSDictionary *attachment in attachments) {
         NSData *data = [attachment objectForKey:kMFAttachmentData];
@@ -42,20 +62,6 @@ static ComposeFinishedBlock _composeFinishedBlock;
     if (_composeCreatedBlock) {
         _composeCreatedBlock(mailComposeViewController);
     }
-}
-
-+ (void)mailWithSubject:(NSString *)subject
-                message:(NSString *)message
-             recipients:(NSArray *)recipients
-             onCreation:(ComposeCreatedBlock)creation
-               onFinish:(ComposeFinishedBlock)finished
-{
-    [MFMailComposeViewController mailWithSubject:subject
-                                         message:message
-                                      recipients:recipients
-                                  andAttachments:nil
-                                      onCreation:creation
-                                        onFinish:finished];
 }
 
 
