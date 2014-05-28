@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
   s.header_mappings_dir   = 'Source'
 
   s.subspec 'Cocoa' do |cocoas|
-    cocoas.source_files  	= 'Source/iOSBlocks.h'
-    cocoas.source_files 	= 'Source/iOSBlocksProtocol.h'
+    cocoas.source_files  	= 'Source/iOSBlocks.h', 'Source/iOSBlocksProtocol.h'
     cocoas.dependency       'iOSBlocks/CoreLocation'
     cocoas.dependency       'iOSBlocks/Foundation'
     cocoas.dependency       'iOSBlocks/MessageUI'
@@ -26,26 +25,22 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'CoreLocation' do |ls|
-    ls.source_files       = 'Source/CoreLocation/*.{h,m}'
-    ls.source_files	      = 'Source/iOSBlocksProtocol.h'
+    ls.source_files       = 'Source/CoreLocation/*.{h,m}', 'Source/iOSBlocksProtocol.h'
     ls.frameworks         = 'CoreLocation'
   end
 
   s.subspec 'Foundation' do |fs|
-    fs.source_files       = 'Source/Foundation/*.{h,m}'
-    fs.source_files	      = 'Source/iOSBlocksProtocol.h'
+    fs.source_files       = 'Source/Foundation/*.{h,m}', 'Source/iOSBlocksProtocol.h'
     fs.frameworks         = 'Foundation'
   end
 
   s.subspec 'MessageUI' do |ms|
-    ms.source_files       = 'Source/MessageUI/*.{h,m}'
-	  ms.source_files	      = 'Source/iOSBlocksProtocol.h'
+    ms.source_files       = 'Source/MessageUI/*.{h,m}', 'Source/iOSBlocksProtocol.h'
     ms.frameworks         = 'MessageUI'
   end
 
   s.subspec 'UIKit' do |us|
-    us.source_files       = 'Source/UIKit/*.{h,m}'
-	  us.source_files	      = 'Source/iOSBlocksProtocol.h'
+    us.source_files       = 'Source/UIKit/*.{h,m}', 'Source/iOSBlocksProtocol.h'
     us.frameworks         = 'UIKit', 'MobileCoreServices'
   end
 
