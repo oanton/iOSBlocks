@@ -243,7 +243,7 @@ static UIView *_inView;
 - (void)showUsingView:(UIView *)view
 {
     if ([view isKindOfClass:[UIView class]]) {
-        [self showInView:view];
+        [self showInView:[UIApplication sharedApplication].keyWindow];
     }
     else if ([view isKindOfClass:[UITabBar class]]) {
         [self showFromTabBar:(UITabBar *)view];
