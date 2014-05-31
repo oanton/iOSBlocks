@@ -30,6 +30,9 @@ static ComposeFinishedBlock _composeFinishedBlock;
                onFinish:(ComposeFinishedBlock)finished
 {
     if (![self canSendText]) {
+#if TARGET_IPHONE_SIMULATOR
+        NSLog(@"MFMessageComposeViewController is not supported in Simulator.");
+#endif
         return;
     }
     
