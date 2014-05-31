@@ -243,7 +243,12 @@ static UIView *_inView;
 - (void)showUsingView:(UIView *)view
 {
     if ([view isKindOfClass:[UIView class]]) {
-        [self showInView:[UIApplication sharedApplication].keyWindow];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [self showInView:[UIApplication sharedApplication].keyWindow];
+        }
+        else {
+            [self showInView:view];
+        }
     }
     else if ([view isKindOfClass:[UITabBar class]]) {
         [self showFromTabBar:(UITabBar *)view];
