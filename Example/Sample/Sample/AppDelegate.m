@@ -28,6 +28,7 @@
     if (!_tabBarController)
     {
         _tabBarController = [[UITabBarController alloc] init];
+        _tabBarController.delegate = self;
         
         ViewsSampleViewController *viewsSampleVC = [[ViewsSampleViewController alloc] initWithNibName:@"ViewsSampleViewController" bundle:nil];
         NavigationSampleViewController *navigationSampleVC = [[NavigationSampleViewController alloc] init];
@@ -44,6 +45,17 @@
         [_tabBarController setViewControllers:navigationControllers];
     }
     return _tabBarController;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"%s : %@",__FUNCTION__, viewController);
+    return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"%s : %@",__FUNCTION__, viewController);
 }
 
 @end

@@ -55,6 +55,10 @@ static UIViewController *_viewController;
 
 - (void)setCompletionBlock:(VoidBlock)completion viewController:(UIViewController *)viewController andDelegate:(id)delegate
 {
+    if (!completion) {
+        return;
+    }
+    
     _completionBlock  = [completion copy];
     _viewController = viewController;
     
@@ -65,6 +69,7 @@ static UIViewController *_viewController;
 {
     if ([viewController isEqual:_viewController] && _completionBlock) {
         _completionBlock();
+        _viewController = nil;
     }
 }
 
