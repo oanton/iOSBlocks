@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name			            = "iOSBlocks"
-  s.version             	= "1.1"
+  s.version             	= "1.1.1"
   s.summary             	= "Objective-C block replacement for some Cocoa Touch APIs depending on delegation."
   s.homepage            	= "https://github.com/dzenbot/iOSBlocks"
   s.license              	= { :type => 'MIT', :file => 'LICENSE' }
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.requires_arc 	        = true
 
   # Include UIKit as default spec
-  s.default_subspec       = 'UIKit'
+  s.default_subspec       = 'Cocoa'
   s.header_mappings_dir   = 'Source'
 
   s.subspec 'Cocoa' do |cocoas|
