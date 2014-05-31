@@ -19,18 +19,46 @@ static ComposeFinishedBlock _composeFinishedBlock;
              onCreation:(ComposeCreatedBlock)creation
                onFinish:(ComposeFinishedBlock)finished
 {
+    [self messageWithBody:body subject:nil recipients:recipients andAttachments:nil onCreation:creation onFinish:finished];
+}
+
++ (void)messageWithBody:(NSString *)body
+                subject:(NSString *)subject
+             recipients:(NSArray *)recipients
+         andAttachments:(NSArray *)attachments
+             onCreation:(ComposeCreatedBlock)creation
+               onFinish:(ComposeFinishedBlock)finished
+{
+    if (![self canSendText]) {
+        return;
+    }
+    
     _composeCreatedBlock = [creation copy];
     _composeFinishedBlock = [finished copy];
     
-    MFMessageComposeViewController *messageComposerViewController = [[MFMessageComposeViewController alloc] init];
-    messageComposerViewController.messageComposeDelegate = [self class];
-    [messageComposerViewController setBody:body];
-    [messageComposerViewController setRecipients:recipients];
+    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+    controller.messageComposeDelegate = [self class];
     
-    messageComposerViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [controller setBody:body];
+    [controller setRecipients:recipients];
     
+    if ([self canSendSubject] && subject) {
+        [controller setSubject:subject];
+    }
+    
+    if ([self canSendAttachments] && attachments.count > 0) {
+        
+        for (NSDictionary *attachment in attachments) {
+            NSData *data = [attachment objectForKey:kMFMessageAttachmentData];
+            NSString *mimeType = [attachment objectForKey:kMFMessageAttachmentMimeType];
+            NSData *filename = [attachment objectForKey:kMFMessageAttachmentFileName];
+            
+            [controller addAttachmentData:data typeIdentifier:mimeType filename:filename];
+        }
+    }
+
     if (_composeCreatedBlock) {
-        _composeCreatedBlock(messageComposerViewController);
+        _composeCreatedBlock(controller);
     }
 }
 

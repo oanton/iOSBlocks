@@ -10,7 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import "iOSBlocksProtocol.h"
 
-__unused static NSString *kMFAttachmentData = @"MFMailAttachmentData";
+__unused static NSString *kMFAttachmentData     = @"MFMailAttachmentData";
 __unused static NSString *kMFAttachmentMimeType = @"MFMailAttachmentMimeType";
 __unused static NSString *kMFAttachmentFileName = @"MFMailAttachmentFileName";
 

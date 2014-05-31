@@ -39,29 +39,33 @@ static ComposeFinishedBlock _composeFinishedBlock;
              onCreation:(ComposeCreatedBlock)creation
                onFinish:(ComposeFinishedBlock)finished
 {
+    if (![self canSendMail]) {
+        return;
+    }
+    
     _composeCreatedBlock = [creation copy];
     _composeFinishedBlock = [finished copy];
     
-    MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
-    mailComposeViewController.mailComposeDelegate = [self class];
-    [mailComposeViewController setSubject:subject];
-    [mailComposeViewController setMessageBody:message isHTML:YES];
-    [mailComposeViewController setToRecipients:recipients];
-    [mailComposeViewController setBccRecipients:bccRecipients];
-    [mailComposeViewController setCcRecipients:ccRecipients];
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+    controller.mailComposeDelegate = [self class];
+    [controller setSubject:subject];
+    [controller setMessageBody:message isHTML:YES];
+    [controller setToRecipients:recipients];
+    [controller setBccRecipients:bccRecipients];
+    [controller setCcRecipients:ccRecipients];
     
     for (NSDictionary *attachment in attachments) {
         NSData *data = [attachment objectForKey:kMFAttachmentData];
         NSString *mimeType = [attachment objectForKey:kMFAttachmentMimeType];
         NSData *filename = [attachment objectForKey:kMFAttachmentFileName];
         
-        [mailComposeViewController addAttachmentData:data mimeType:mimeType fileName:filename];
+        [controller addAttachmentData:data mimeType:mimeType fileName:filename];
     }
     
-    mailComposeViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    controller.modalPresentationStyle = UIModalPresentationFormSheet;
     
     if (_composeCreatedBlock) {
-        _composeCreatedBlock(mailComposeViewController);
+        _composeCreatedBlock(controller);
     }
 }
 
