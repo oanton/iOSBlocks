@@ -30,6 +30,9 @@ static ComposeFinishedBlock _composeFinishedBlock;
                                         onFinish:finished];
 }
 
+
+
+
 + (void)mailWithSubject:(NSString *)subject
                 message:(NSString *)message
              recipients:(NSArray *)recipients
@@ -45,9 +48,9 @@ static ComposeFinishedBlock _composeFinishedBlock;
     
     _composeCreatedBlock = [creation copy];
     _composeFinishedBlock = [finished copy];
-    
+
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-    controller.mailComposeDelegate = [self class];
+    controller.mailComposeDelegate = weakObject(controller);
     [controller setSubject:subject];
     [controller setMessageBody:message isHTML:YES];
     [controller setToRecipients:recipients];
@@ -57,7 +60,7 @@ static ComposeFinishedBlock _composeFinishedBlock;
     for (NSDictionary *attachment in attachments) {
         NSData *data = [attachment objectForKey:kMFAttachmentData];
         NSString *mimeType = [attachment objectForKey:kMFAttachmentMimeType];
-        NSData *filename = [attachment objectForKey:kMFAttachmentFileName];
+        NSString *filename = [attachment objectForKey:kMFAttachmentFileName];
         
         [controller addAttachmentData:data mimeType:mimeType fileName:filename];
     }
@@ -72,10 +75,10 @@ static ComposeFinishedBlock _composeFinishedBlock;
 
 #pragma mark - MFMailComposeViewControllerDelegate
 
-+ (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     if (_composeFinishedBlock) {
-        _composeFinishedBlock(controller, error);
+        _composeFinishedBlock(controller, result, error);
     }
 }
 

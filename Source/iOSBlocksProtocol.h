@@ -7,6 +7,12 @@
 //  Licence: MIT-Licence
 //
 
+/* Helper for casting weak objects to be used inside blocks or for assigning as delegates. */
+static id weakObject(id object) {
+    __block typeof(object) weakSelf = object;
+    return weakSelf;
+}
+
 /*
  * Generic block constants for free usage over different classes.
  */
@@ -15,11 +21,11 @@
 typedef void (^VoidBlock)();
 typedef void (^CompletionBlock)(BOOL completed);
 
-typedef void (^DismissBlock)(int buttonIndex, NSString *buttonTitle);
+typedef void (^DismissBlock)(NSInteger buttonIndex, NSString *buttonTitle);
 typedef void (^PhotoPickedBlock)(UIImage *chosenImage);
 
 typedef void (^ComposeCreatedBlock)(UIViewController *controller);
-typedef void (^ComposeFinishedBlock)(UIViewController *controller, NSError *error);
+typedef void (^ComposeFinishedBlock)(UIViewController *controller, int result, NSError *error);
 
 typedef void (^ProgressBlock)(NSInteger connectionProgress);
 typedef void (^DataBlock)(NSData *data);

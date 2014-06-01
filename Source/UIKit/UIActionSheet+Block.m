@@ -11,15 +11,25 @@
 #import "UIPopoverController+Block.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-#define kPhotoActionSheetTag 10000
+#define kPhotoActionSheetTag        10000
+#define kActionSheetCancelIndex     -1
 
 static DismissBlock _dismissBlock;
 static VoidBlock _cancelBlock;
 static PhotoPickedBlock _photoPickedBlock;
+static id _delegate;
 static UIViewController *_presentVC;
 static UIView *_inView;
 
 @implementation UIActionSheet (Block)
+
++ (BOOL)canShowInView:(UIView *)view
+{
+    if (!view.window) {
+        return NO;
+    }
+    return YES;
+}
 
 + (UIActionSheet *)actionSheetWithTitle:(NSString *)title
                                   style:(UIActionSheetStyle)sheetStyle
@@ -39,13 +49,14 @@ static UIView *_inView;
     _dismissBlock = [dismissed copy];
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title
-                                                             delegate:[self class]
+                                                             delegate:nil
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:destructiveButtonTitle
                                                     otherButtonTitles:nil];
     
+    actionSheet.delegate = weakObject(actionSheet);
     actionSheet.actionSheetStyle = sheetStyle;
-    
+
     for (int i = 0; i < buttonTitles.count; i++) {
         NSString *title = [buttonTitles objectAtIndex:i];
         [actionSheet addButtonWithTitle:title];
@@ -126,16 +137,19 @@ static UIView *_inView;
     _presentVC = presentVC;
     _inView = view;
     
-    int cancelButtonIndex = -1;
-    
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title
-                                                             delegate:[self class]
+                                                             delegate:nil
 													cancelButtonTitle:nil
 											   destructiveButtonTitle:nil
 													otherButtonTitles:nil];
     
+    actionSheet.delegate = weakObject(actionSheet);
     actionSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
     
+    _delegate = weakObject(actionSheet);
+    
+    NSInteger cancelButtonIndex = kActionSheetCancelIndex;
+
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
 		[actionSheet addButtonWithTitle:NSLocalizedString(@"Camera", @"Camera")];
 		cancelButtonIndex ++;
@@ -157,29 +171,10 @@ static UIView *_inView;
     return actionSheet;
 }
 
-+ (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-	UIImage *editedImage = (UIImage *)[info valueForKey:UIImagePickerControllerEditedImage];
-    if (!editedImage) editedImage = (UIImage *)[info valueForKey:UIImagePickerControllerOriginalImage];
-    
-	[picker dismissViewControllerAnimated:YES completion:NULL];
-    
-    if (_photoPickedBlock) {
-        _photoPickedBlock(editedImage);
-    }
-}
 
+#pragma mark - UIActionSheetDelegate
 
-+ (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [_presentVC dismissViewControllerAnimated:YES completion:NULL];
-    
-    if (_cancelBlock) {
-        _cancelBlock();
-    }
-}
-
-+ (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex == [actionSheet cancelButtonIndex]) {
         if (_cancelBlock) {
@@ -197,23 +192,27 @@ static UIView *_inView;
                 buttonIndex ++;
             }
             
-            UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-            pickerController.delegate = [self class];
-            pickerController.allowsEditing = NO;
-            pickerController.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+            UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+            controller.delegate = weakObject(_delegate);
+            controller.allowsEditing = NO;
+            controller.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
             
             if (buttonIndex == 1) {
-                pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                controller.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
             }
             else if(buttonIndex == 2) {
-                pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;;
+                controller.sourceType = UIImagePickerControllerSourceTypeCamera;;
             }
             
-            if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
-                [_presentVC presentViewController:pickerController animated:YES completion:NULL];
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                if (_presentVC) {
+                    [_presentVC presentViewController:controller animated:YES completion:NULL];
+                }
             }
             else {
-                [UIPopoverController popOverWithContentViewController:pickerController
+                controller.contentSizeForViewInPopover = CGSizeMake(320.0, 460.0);
+
+                [UIPopoverController popOverWithContentViewController:controller
                                                            showInView:_inView
                                                       onShouldDismiss:^(void){
                                                           [[UIPopoverController sharedPopover] dismissPopoverAnimated:YES];
@@ -223,8 +222,7 @@ static UIView *_inView;
                  ];
             }
         }
-        else
-        {
+        else {
             if (_dismissBlock) {
                 _dismissBlock(buttonIndex,[actionSheet buttonTitleAtIndex:buttonIndex]);
             }
@@ -232,32 +230,46 @@ static UIView *_inView;
     }
 }
 
-+ (BOOL)canShowInView:(UIView *)view
-{
-    if (!view.window) {
-        return NO;
-    }
-    return YES;
-}
-
 - (void)showUsingView:(UIView *)view
 {
-    if ([view isKindOfClass:[UIView class]]) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            [self showInView:[UIApplication sharedApplication].keyWindow];
-        }
-        else {
-            [self showInView:view];
-        }
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self showInView:[UIApplication sharedApplication].keyWindow];
     }
-    else if ([view isKindOfClass:[UITabBar class]]) {
-        [self showFromTabBar:(UITabBar *)view];
+    else {
+        [self showFromRect:[view frame] inView:[UIApplication sharedApplication].keyWindow animated:YES];
     }
-    else if ([view isKindOfClass:[UIToolbar class]]) {
-        [self showFromToolbar:(UIToolbar *)view];
+}
+
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	UIImage *editedImage = (UIImage *)[info valueForKey:UIImagePickerControllerEditedImage];
+    if (!editedImage) editedImage = (UIImage *)[info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    if (_photoPickedBlock) {
+        _photoPickedBlock(editedImage);
     }
-    else if ([view isKindOfClass:[UIBarButtonItem class]]) {
-        [self showFromBarButtonItem:(UIBarButtonItem *)view animated:YES];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [picker dismissViewControllerAnimated:YES completion:NULL];
+    }
+    else {
+        [[UIPopoverController sharedPopover] dismissPopoverAnimated:YES];
+    }
+    
+    if (_delegate) {
+        _delegate = nil;
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [_presentVC dismissViewControllerAnimated:YES completion:NULL];
+    
+    if (_cancelBlock) {
+        _cancelBlock();
     }
 }
 

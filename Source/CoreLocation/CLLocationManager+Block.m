@@ -37,7 +37,7 @@ static CLLocationManager *_sharedManager = nil;
     _locationBlock = [located copy];
     _failureBlock = [failed copy];
     
-    [[CLLocationManager sharedManager] setDelegate:self];
+    [[CLLocationManager sharedManager] setDelegate:weakObject(self)];
     [[CLLocationManager sharedManager] setDistanceFilter:filter];
     [[CLLocationManager sharedManager] setDesiredAccuracy:accuracy];
     [[CLLocationManager sharedManager] startUpdatingLocation];

@@ -27,13 +27,13 @@ static FailureBlock _failureBlock;
     _successBlock = [success copy];
     _failureBlock = [fail copy];
     
-    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:weakObject(self)];
     [connection start];
 
     return connection;
 }
 
-+ (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
     
@@ -42,14 +42,14 @@ static FailureBlock _failureBlock;
     }
 }
 
-+ (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (_dataBlock) {
         _dataBlock(data);
     }
 }
 
-+ (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
     NSInteger progress = (totalBytesWritten*100)/totalBytesExpectedToWrite;
     
@@ -58,7 +58,7 @@ static FailureBlock _failureBlock;
     }
 }
 
-+ (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     if (_failureBlock) {
         _failureBlock(error);

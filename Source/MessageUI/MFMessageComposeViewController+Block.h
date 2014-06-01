@@ -10,9 +10,9 @@
 #import <MessageUI/MessageUI.h>
 #import "iOSBlocksProtocol.h"
 
-__unused static NSString *kMFMessageAttachmentData     = @"MFMessageAttachmentData";
-__unused static NSString *kMFMessageAttachmentMimeType = @"MFMessageAttachmentMimeType";
-__unused static NSString *kMFMessageAttachmentFileName = @"MFMessageAttachmentFileName";
+static NSString *kMFMessageAttachmentData       = @"com.dzn.MFMessageAttachmentData";
+static NSString *kMFMessageAttachmentMimeType   = @"com.dzn.MFMessageAttachmentMimeType";
+static NSString *kMFMessageAttachmentFileName   = @"com.dzn.MFMessageAttachmentFileName";
 
 /*
  * MessageUI MessageComposeViewController Delegate block methods.

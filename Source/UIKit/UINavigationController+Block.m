@@ -16,13 +16,13 @@ static UIViewController *_viewController;
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated onCompletion:(VoidBlock)completion
 {
-    [self setCompletionBlock:completion viewController:viewController andDelegate:self];
+    [self setCompletionBlock:completion viewController:viewController delegate:weakObject(self)];
     [self pushViewController:_viewController animated:animated];
 }
 
 - (void)popToViewController:(UIViewController *)viewController animated:(BOOL)animated onCompletion:(VoidBlock)completion
 {
-    [self setCompletionBlock:completion viewController:viewController andDelegate:self];
+    [self setCompletionBlock:completion viewController:viewController delegate:weakObject(self)];
     [self popToViewController:_viewController animated:animated];
 }
 
@@ -35,7 +35,7 @@ static UIViewController *_viewController;
         index--;
         UIViewController *viewController = [self.viewControllers objectAtIndex:index];
         
-        [self setCompletionBlock:completion viewController:viewController andDelegate:self];
+        [self setCompletionBlock:completion viewController:viewController delegate:weakObject(self)];
         [self popToViewController:_viewController animated:animated];
     }
 }
@@ -48,12 +48,12 @@ static UIViewController *_viewController;
 
         UIViewController *viewController = [self.viewControllers objectAtIndex:0];
         
-        [self setCompletionBlock:completion viewController:viewController andDelegate:self];
+        [self setCompletionBlock:completion viewController:viewController delegate:weakObject(self)];
         [self popToRootViewControllerAnimated:animated];
     }
 }
 
-- (void)setCompletionBlock:(VoidBlock)completion viewController:(UIViewController *)viewController andDelegate:(id)delegate
+- (void)setCompletionBlock:(VoidBlock)completion viewController:(UIViewController *)viewController delegate:(id)delegate
 {
     if (!completion) {
         return;

@@ -40,7 +40,7 @@ static ComposeFinishedBlock _composeFinishedBlock;
     _composeFinishedBlock = [finished copy];
     
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-    controller.messageComposeDelegate = [self class];
+    controller.messageComposeDelegate = weakObject(controller);
     
     [controller setBody:body];
     [controller setRecipients:recipients];
@@ -54,7 +54,7 @@ static ComposeFinishedBlock _composeFinishedBlock;
         for (NSDictionary *attachment in attachments) {
             NSData *data = [attachment objectForKey:kMFMessageAttachmentData];
             NSString *mimeType = [attachment objectForKey:kMFMessageAttachmentMimeType];
-            NSData *filename = [attachment objectForKey:kMFMessageAttachmentFileName];
+            NSString *filename = [attachment objectForKey:kMFMessageAttachmentFileName];
             
             [controller addAttachmentData:data typeIdentifier:mimeType filename:filename];
         }
@@ -68,10 +68,10 @@ static ComposeFinishedBlock _composeFinishedBlock;
 
 #pragma mark - MFMessageComposeViewControllerDelegate
 
-+ (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
     if (_composeFinishedBlock) {
-        _composeFinishedBlock(controller, nil);
+        _composeFinishedBlock(controller, result, nil);
     }
 }
 

@@ -8,52 +8,90 @@
 //
 
 #import "UIPickerView+Block.h"
+#import "UIPopoverController+Block.h"
 
-static NSString *contentKeyPath = @"UIPickerViewKey";
+static NSArray *_content;
 static RowPickedBlock _rowPickedBlock;
 
 @implementation UIPickerView (Block)
 
-+ (UIPickerView *)pickerViewWithContent:(NSArray *)content
-                             showInView:(UIView *)view
-                        onShouldDismiss:(RowPickedBlock)rowPickedBlock
++ (BOOL)canShowInView:(UIView *)view
 {
-    _rowPickedBlock = [rowPickedBlock copy];
-    
-    UIPickerView *picker = [[UIPickerView alloc] init];
-    picker.showsSelectionIndicator = YES;
-    picker.dataSource = [self class];
-    picker.delegate = [self class];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:content forKey:contentKeyPath];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-        
-    return picker;
+    if (!view.window) {
+        return NO;
+    }
+    return YES;
 }
 
-+ (NSArray *)content
++ (UIPickerView *)pickerViewWithContent:(NSArray *)content
+                             showInView:(UIView *)view
+                            onRowPicked:(RowPickedBlock)rowPickedBlock
 {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:contentKeyPath];
+    if (![self canShowInView:view] || content.count == 0) {
+        return nil;
+    }
+    
+    if (_content) {
+        _content = nil;
+    }
+    
+    _rowPickedBlock = [rowPickedBlock copy];
+    _content = [content copy];
+    
+    UIPickerView *pickerView = [[UIPickerView alloc] init];
+    pickerView.dataSource = weakObject(pickerView);
+    pickerView.delegate = weakObject(pickerView);
+    pickerView.backgroundColor = [UIColor whiteColor];
+    pickerView.showsSelectionIndicator = YES;
+
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [view addSubview:pickerView];
+    }
+    else {
+        UIViewController *controller = [UIViewController new];
+        [controller.view addSubview:pickerView];
+        
+        controller.contentSizeForViewInPopover = pickerView.frame.size;
+        
+        [UIPopoverController popOverWithContentViewController:controller
+                                                   showInView:view
+                                              onShouldDismiss:^(void){
+                                                  [[UIPopoverController sharedPopover] dismissPopoverAnimated:YES];
+                                              }
+                                                     onCancel:^(void){
+                                                     }
+         ];
+    }
+    
+    return pickerView;
 }
+
+
+#pragma mark - UIPickerViewDataSource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
-+ (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     
-    return [[UIPickerView content] count];
+    return [_content count];
 }
 
-+ (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [[UIPickerView content] objectAtIndex:row];
+    return [_content objectAtIndex:row];
 }
 
-+ (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+
+#pragma mark - UIPickerViewDelegate
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    _rowPickedBlock([[UIPickerView content] objectAtIndex:row]);
+    if (_rowPickedBlock) {
+        _rowPickedBlock([_content objectAtIndex:row]);
+    }
 }
 
 @end

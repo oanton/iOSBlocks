@@ -29,9 +29,14 @@ static UIPopoverController *_sharedPopover;
     _shouldDismissBlock = [shouldDismiss copy];
     _cancelBlock = [cancelled copy];
     
-    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:controller];
-    popover.delegate = [self class];
+    if (_sharedPopover && ![controller isEqual:[UIPopoverController sharedPopover].contentViewController]) {
+        _sharedPopover = nil;
+    }
     
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:controller];
+    popover.popoverContentSize = controller.contentSizeForViewInPopover;
+    popover.delegate = weakObject(popover);
+
     if ([view isKindOfClass:[UIBarButtonItem class]]) {
         [popover presentPopoverFromBarButtonItem:(UIBarButtonItem *)view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
@@ -42,7 +47,7 @@ static UIPopoverController *_sharedPopover;
     _sharedPopover = popover;
 }
 
-+ (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
+- (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
 {
     if (_shouldDismissBlock) {
         _shouldDismissBlock();
@@ -51,7 +56,7 @@ static UIPopoverController *_sharedPopover;
     return YES;
 }
 
-+ (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     if (_cancelBlock) {
         _cancelBlock();

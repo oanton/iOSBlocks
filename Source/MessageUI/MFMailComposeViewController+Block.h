@@ -10,9 +10,9 @@
 #import <MessageUI/MessageUI.h>
 #import "iOSBlocksProtocol.h"
 
-__unused static NSString *kMFAttachmentData     = @"MFMailAttachmentData";
-__unused static NSString *kMFAttachmentMimeType = @"MFMailAttachmentMimeType";
-__unused static NSString *kMFAttachmentFileName = @"MFMailAttachmentFileName";
+static NSString *kMFAttachmentData      = @"com.dzn.MFMailAttachmentData";
+static NSString *kMFAttachmentMimeType  = @"com.dzn.MFMailAttachmentMimeType";
+static NSString *kMFAttachmentFileName  = @"com.dzn.MFMailAttachmentFileName";
 
 /*
  * MessageUI MailComposeViewController Delegate block methods.

@@ -26,9 +26,11 @@ static VoidBlock _cancelBlock;
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
                                                     message:message
-                                                   delegate:[self class]
+                                                   delegate:nil
                                           cancelButtonTitle:cancelButtonTitle
                                           otherButtonTitles:nil];
+    
+    alert.delegate = weakObject(alert);
     
     for (NSString *buttonTitle in otherButtons) {
         [alert addButtonWithTitle:buttonTitle];
@@ -62,7 +64,9 @@ static VoidBlock _cancelBlock;
 }
 
 
-+ (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex == [alertView cancelButtonIndex]) {
 		if (_cancelBlock) {

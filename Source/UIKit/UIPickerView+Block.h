@@ -24,6 +24,6 @@
  */
 + (UIPickerView *)pickerViewWithContent:(NSArray *)content
                              showInView:(UIView *)view
-                        onShouldDismiss:(RowPickedBlock)rowPickedBlock;
+                            onRowPicked:(RowPickedBlock)rowPickedBlock;
 
 @end
