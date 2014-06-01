@@ -16,7 +16,8 @@
 - (IBAction)triggerNewEmail:(id)sender;
 - (IBAction)triggerNewMessage:(id)sender;
 - (IBAction)triggerNewSheet:(id)sender;
-- (IBAction)triggerNewPicker:(id)sender;
+- (IBAction)triggerNewPhotoPicker:(id)sender;
+- (IBAction)triggerNewPickerView:(id)sender;
 - (IBAction)triggerNewAlert:(id)sender;
 - (IBAction)triggerNewPopover:(id)sender;
 

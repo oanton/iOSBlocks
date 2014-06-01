@@ -22,20 +22,29 @@
     {
         self.title = @"Location";
         self.tabBarItem.image = [UIImage imageNamed:@"item"];
-        
-        CGRect frame = self.view.frame;
-        frame.origin = CGPointZero;
-        
-        _mapview = [[MKMapView alloc] initWithFrame:frame];
-        [self.view addSubview:_mapview];
-        
-        UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Locate" style:UIBarButtonItemStyleBordered target:self action:@selector(locateUser:)];
-        [self.navigationItem setLeftBarButtonItem:leftBarButton];
     }
     return self;
 }
 
+
 #pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    CGRect frame = self.view.frame;
+    frame.origin = CGPointZero;
+    
+    _mapview = [[MKMapView alloc] initWithFrame:frame];
+    [self.view addSubview:_mapview];
+    
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Locate" style:UIBarButtonItemStyleBordered target:self action:@selector(locateUser:)];
+    [self.navigationItem setLeftBarButtonItem:leftBarButton];
+}
+
+
+#pragma mark - User Actions
 
 - (void)locateUser:(id)sender
 {

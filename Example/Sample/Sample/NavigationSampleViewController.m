@@ -7,6 +7,7 @@
 //
 
 #import "NavigationSampleViewController.h"
+
 #import "UINavigationController+Block.h"
 
 @interface NavigationSampleViewController ()
@@ -16,7 +17,7 @@
 
 - (id)init
 {
-    self = [super init];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self)
     {
         self.title = @"Navigation";
@@ -35,26 +36,8 @@
     if (stackCount > 1) {
         self.title = [NSString stringWithFormat:@"%lu",(unsigned long)stackCount];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
+    
+    self.tableView.tableFooterView = [UIView new];
 }
 
 
@@ -70,7 +53,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) return 1;
-    else return 3;
+    else {
+        if (self.navigationController.viewControllers.count > 2) return 3;
+        else return 2;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,13 +76,13 @@
     }
     else {
         if (indexPath.row == 0) {
-            title = [NSString stringWithFormat:@"Pop To ViewController 2"];
+            title = [NSString stringWithFormat:@"Pop To Root ViewController"];
         }
         else if (indexPath.row == 1) {
             title = [NSString stringWithFormat:@"Pop ViewController"];
         }
-        else if (indexPath.row == 2) {
-            title = [NSString stringWithFormat:@"Pop To Root ViewController"];
+        else {
+            title = [NSString stringWithFormat:@"Pop To ViewController 2"];
         }
     }
     
@@ -116,8 +102,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSUInteger stackCount = self.navigationController.viewControllers.count;
-    
     if (indexPath.section == 0) {
         
         NavigationSampleViewController *viewController = [NavigationSampleViewController new];
@@ -129,16 +113,10 @@
     }
     else {
         if (indexPath.row == 0) {
-            
-            if (stackCount > 1) {
-                UIViewController *secondViewController = [self.navigationController.viewControllers objectAtIndex:1];
-                
-                [self.navigationController popToViewController:secondViewController
-                                                      animated:YES
-                                                  onCompletion:^(){
-                                                      NSLog(@"Pop To ViewController 2 Completed!");
-                                                  }];
-            }
+            [self.navigationController popToRootViewControllerAnimated:YES
+                                                          onCompletion:^(){
+                                                              NSLog(@"Pop To Root ViewController Completed!");
+                                                          }];
         }
         else if (indexPath.row == 1) {
             
@@ -147,12 +125,14 @@
                                                         NSLog(@"Pop ViewController Completed!");
                                                     }];
         }
-        else if (indexPath.row == 2) {
+        else {
+            UIViewController *secondViewController = [self.navigationController.viewControllers objectAtIndex:1];
             
-            [self.navigationController popToRootViewControllerAnimated:YES
-                                                          onCompletion:^(){
-                                                              NSLog(@"Pop To Root ViewController Completed!");
-                                                          }];
+            [self.navigationController popToViewController:secondViewController
+                                                  animated:YES
+                                              onCompletion:^(){
+                                                  NSLog(@"Pop To ViewController 2 Completed!");
+                                              }];
         }
     }
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F2299D9170D129A001C8A97 /* UIPickerView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2299D8170D129A001C8A97 /* UIPickerView+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F2299D9170D129A001C8A97 /* UIPickerView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2299D8170D129A001C8A97 /* UIPickerView+Block.m */; };
 		4F667B9816C9D28E00FE8B8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667B9716C9D28E00FE8B8D /* UIKit.framework */; };
 		4F667B9A16C9D28E00FE8B8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667B9916C9D28E00FE8B8D /* Foundation.framework */; };
 		4F667B9C16C9D28E00FE8B8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667B9B16C9D28E00FE8B8D /* CoreGraphics.framework */; };
@@ -20,14 +20,13 @@
 		4F667BB116C9D28E00FE8B8D /* ViewsSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F667BB016C9D28E00FE8B8D /* ViewsSampleViewController.m */; };
 		4F667BD016C9E7EC00FE8B8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */; };
 		4F667BD316C9E82E00FE8B8D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F667BD116C9E82000FE8B8D /* MessageUI.framework */; };
-		4F667BD916CA09DF00FE8B8D /* ViewsSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F667BD716CA09DE00FE8B8D /* ViewsSampleViewController.xib */; };
-		4F7AF87D16EAA195005C3769 /* MFMailComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87116EAA195005C3769 /* MFMailComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F7AF87E16EAA195005C3769 /* MFMessageComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87316EAA195005C3769 /* MFMessageComposeViewController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F7AF87F16EAA195005C3769 /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87616EAA195005C3769 /* UIActionSheet+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F7AF88016EAA195005C3769 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87816EAA195005C3769 /* UIAlertView+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F7AF88116EAA195005C3769 /* UIPopoverController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F7AF88416EAA286005C3769 /* NSURLConnection+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88316EAA286005C3769 /* NSURLConnection+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
-		4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88616EAA2A9005C3769 /* CLLocationManager+Block.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		4F7AF87D16EAA195005C3769 /* MFMailComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87116EAA195005C3769 /* MFMailComposeViewController+Block.m */; };
+		4F7AF87E16EAA195005C3769 /* MFMessageComposeViewController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87316EAA195005C3769 /* MFMessageComposeViewController+Block.m */; };
+		4F7AF87F16EAA195005C3769 /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87616EAA195005C3769 /* UIActionSheet+Block.m */; };
+		4F7AF88016EAA195005C3769 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87816EAA195005C3769 /* UIAlertView+Block.m */; };
+		4F7AF88116EAA195005C3769 /* UIPopoverController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF87A16EAA195005C3769 /* UIPopoverController+Block.m */; };
+		4F7AF88416EAA286005C3769 /* NSURLConnection+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88316EAA286005C3769 /* NSURLConnection+Block.m */; };
+		4F7AF88716EAA2A9005C3769 /* CLLocationManager+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7AF88616EAA2A9005C3769 /* CLLocationManager+Block.m */; };
 		4F7FD53016FD09D500FECB7F /* UINavigationController+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FD52F16FD09D500FECB7F /* UINavigationController+Block.m */; };
 		4F7FD53316FD0A1000FECB7F /* NavigationSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */; };
 		4F7FD57916FD3D3300FECB7F /* item.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7FD57716FD3D3300FECB7F /* item.png */; };
@@ -35,6 +34,7 @@
 		4F7FD57D16FD400500FECB7F /* LocationSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7FD57C16FD400500FECB7F /* LocationSampleViewController.m */; };
 		4F7FD58016FD406700FECB7F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7FD57E16FD406000FECB7F /* MapKit.framework */; };
 		4FA5202E16EA79E400B65926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA5202C16EA79DC00B65926 /* CoreLocation.framework */; };
+		4FB05947193ABC370027C072 /* ViewsSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB05945193ABC370027C072 /* ViewsSampleViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +57,6 @@
 		4F667BB016C9D28E00FE8B8D /* ViewsSampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewsSampleViewController.m; sourceTree = "<group>"; };
 		4F667BCE16C9E7E400FE8B8D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4F667BD116C9E82000FE8B8D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		4F667BD816CA09DF00FE8B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewsSampleViewController.xib; sourceTree = "<group>"; };
 		4F7AF86716EAA189005C3769 /* iOSBlocksProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSBlocksProtocol.h; path = ../../../Source/iOSBlocksProtocol.h; sourceTree = "<group>"; };
 		4F7AF86816EAA189005C3769 /* iOSBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSBlocks.h; path = ../../../Source/iOSBlocks.h; sourceTree = "<group>"; };
 		4F7AF87016EAA195005C3769 /* MFMailComposeViewController+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFMailComposeViewController+Block.h"; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		4F7FD57C16FD400500FECB7F /* LocationSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSampleViewController.m; sourceTree = "<group>"; };
 		4F7FD57E16FD406000FECB7F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4FA5202C16EA79DC00B65926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4FB05946193ABC370027C072 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewsSampleViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +143,7 @@
 				4F667BA716C9D28E00FE8B8D /* AppDelegate.m */,
 				4F667BAF16C9D28E00FE8B8D /* ViewsSampleViewController.h */,
 				4F667BB016C9D28E00FE8B8D /* ViewsSampleViewController.m */,
-				4F667BD716CA09DE00FE8B8D /* ViewsSampleViewController.xib */,
+				4FB05945193ABC370027C072 /* ViewsSampleViewController.xib */,
 				4F7FD53116FD0A1000FECB7F /* NavigationSampleViewController.h */,
 				4F7FD53216FD0A1000FECB7F /* NavigationSampleViewController.m */,
 				4F7FD57B16FD400500FECB7F /* LocationSampleViewController.h */,
@@ -284,11 +284,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB05947193ABC370027C072 /* ViewsSampleViewController.xib in Resources */,
 				4F667BA216C9D28E00FE8B8D /* InfoPlist.strings in Resources */,
 				4F667BAA16C9D28E00FE8B8D /* Default.png in Resources */,
 				4F667BAC16C9D28E00FE8B8D /* Default@2x.png in Resources */,
 				4F667BAE16C9D28E00FE8B8D /* Default-568h@2x.png in Resources */,
-				4F667BD916CA09DF00FE8B8D /* ViewsSampleViewController.xib in Resources */,
 				4F7FD57916FD3D3300FECB7F /* item.png in Resources */,
 				4F7FD57A16FD3D3300FECB7F /* item@2x.png in Resources */,
 			);
@@ -329,10 +329,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4F667BD716CA09DE00FE8B8D /* ViewsSampleViewController.xib */ = {
+		4FB05945193ABC370027C072 /* ViewsSampleViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4F667BD816CA09DF00FE8B8D /* en */,
+				4FB05946193ABC370027C072 /* en */,
 			);
 			name = ViewsSampleViewController.xib;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -389,7 +389,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -402,7 +402,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample/Sample-Prefix.pch";
 				INFOPLIST_FILE = "Sample/Sample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -415,7 +415,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sample/Sample-Prefix.pch";
 				INFOPLIST_FILE = "Sample/Sample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
