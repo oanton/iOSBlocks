@@ -1,5 +1,9 @@
 iOS Blocks
 ============
+[![Pod Version](http://img.shields.io/cocoapods/v/iOSBlocks.svg)](https://cocoadocs.org/docsets/iOSBlocks)
+[![Gittip](http://img.shields.io/gittip/dzenbot.svg)](https://www.gittip.com/dzenbot/)
+[![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+
 
 Delegates are a real pain in the ars. Objective-C blocks rule!
 This are some category classes of my own to allow easy implementation of the basic iOS frameworks & APIs without the need of using delegation.
