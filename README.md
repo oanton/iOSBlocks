@@ -1,6 +1,6 @@
 iOS Blocks
 ============
-[![Pod Version](http://img.shields.io/cocoapods/v/iOSBlocks.svg)](https://cocoadocs.org/docsets/iOSBlocks)
+[![Pod Version](http://img.shields.io/cocoapods/v/iOSBlocks.svg)](http://cocoadocs.org/docsets/iOSBlocks/)
 [![Gittip](http://img.shields.io/gittip/dzenbot.svg)](https://www.gittip.com/dzenbot/)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
@@ -11,16 +11,16 @@ This are some category classes of my own to allow easy implementation of the bas
 ## Installation
 Available in [Cocoa Pods](http://cocoapods.org/?q=iOSBlocks)
 ```
-pod 'iOSBlocks', '~> 1.0.2', :inhibit_warnings => true
-```
-(You should add the 'inhibit_warnings' flag to avoid some existing warnings that must be fixed soon)
-
-Then import the library wherever you need it, or in you application's Prefix.pch file.
-```
-#import "iOSBlocks.h"
+pod 'iOSBlocks/Cocoa'
 ```
 
-## Some Examples
+You can also install only the subspecs you're interesting in. For example, install only UIKit block APIs:
+```
+pod 'iOSBlocks/UIKit'
+```
+
+
+## A few examples
 ### UINavigationController
 ```
 - (void)pushViewController:(UIViewController *)viewController
