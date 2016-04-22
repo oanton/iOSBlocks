@@ -1,7 +1,6 @@
 iOS Blocks
 ============
 [![Pod Version](http://img.shields.io/cocoapods/v/iOSBlocks.svg)](http://cocoadocs.org/docsets/iOSBlocks/)
-[![Gittip](http://img.shields.io/gittip/dzenbot.svg)](https://www.gittip.com/dzenbot/)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 
