@@ -1,13 +1,13 @@
 
 Pod::Spec.new do |s|
-  s.name			            = "iOSBlocks"
+  s.name			        = "iOSBlocks"
   s.version             	= "1.2"
   s.summary             	= "Objective-C block replacement for some Cocoa Touch APIs depending on delegation."
-  s.homepage            	= "https://github.com/dzenbot/iOSBlocks"
+  s.homepage            	= "https://github.com/oanton/iOSBlocks"
   s.license              	= { :type => 'MIT', :file => 'LICENSE' }
   s.author              	= { "Ignacio Romero Z." => "iromero@dzen.cl" }
 
-  s.source               	= { :git => "https://github.com/dzenbot/iOSBlocks.git", :tag => "v#{s.version}" }
+  s.source               	= { :git => "https://github.com/oanton/iOSBlocks.git", :tag => "v#{s.version}" }
   
   s.platform            	= :ios, '5.0'
   s.requires_arc 	        = true
